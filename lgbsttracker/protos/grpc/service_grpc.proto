@@ -1,0 +1,32 @@
+// syntax = "proto2";
+
+// package mlflow;
+
+// import "scalapb/scalapb.proto";
+// import "databricks.proto";
+
+// option py_generic_services = true;
+// option (scalapb.options) = {
+//   flat_package: true,
+// };
+
+syntax = "proto3";
+
+import "google/api/annotations.proto";
+
+package py4mac;
+
+service ItemService {
+
+  rpc getItem (GetItem) returns (GetItem.Response) {
+    option (google.api.http).get = "/items/{id}";
+  }
+
+  rpc getItems (GetItems) returns (GetItems.Response) {
+    option (google.api.http).get = "/items";
+  }
+
+  rpc getItem (GetItems) returns (PostItem.Response) {
+    option (google.api.http).post = "/items";
+  }
+}

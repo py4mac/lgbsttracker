@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package common;
+
+message GetItem {
+    string id = 1;
+
+    message Response {
+        Item item = 1;
+    }
+}
+
+message PostItem {
+    Item item = 1;
+    
+    message Response {
+        Item item = 1;
+    }
+}
+
+message GetItems {
+
+    message Response {
+        repeated Item items = 1;
+    }
+}
+
+message Item {
+    string id = 1;
+    string msg = 2;
+}
