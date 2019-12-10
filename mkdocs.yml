@@ -1,6 +1,6 @@
-site_name: FastAPI
-site_description: FastAPI framework, high performance, easy to learn, fast to code, ready for production
-site_url: https://fastapi.tiangolo.com/
+site_name: LGBSTTracker
+site_description: Lego Boost Tracker
+site_url: http://py4mac.github.io/lbgsttracker/
 
 theme:
     name: 'material'
@@ -10,15 +10,12 @@ theme:
     logo: 'img/icon-white.svg'
     favicon: 'img/favicon.png'
 
-repo_name: tiangolo/fastapi
-repo_url: https://github.com/tiangolo/fastapi
+repo_name: py4mac/lgbsttracker
+repo_url: https://github.com/py4mac/lgbsttracker
 edit_uri: ''
-google_analytics:
-    - 'UA-133183413-1'
-    - 'auto'
 
 nav:
-    - FastAPI: 'index.md'
+    - LGBSTTracker: 'index.md'
 
 markdown_extensions:
   - markdown.extensions.codehilite:
