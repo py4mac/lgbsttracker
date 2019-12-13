@@ -1,0 +1,150 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Lego Boost Tracker",
+    "version": "v1",
+    "contact": {
+      "name": "Lego Boost Tracker",
+      "url": "https://github.com/py4mac/lgbsttracker",
+      "email": "boisbu@gmail.com"
+    }
+  },
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/sensors/lightsensors": {
+      "get": {
+        "operationId": "getLightSensors",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/commonGetLightSensorsResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          }
+        },
+        "tags": [
+          "LightSensorService"
+        ]
+      },
+      "post": {
+        "operationId": "createLightSensor",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/commonCreateLightSensorResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          }
+        },
+        "tags": [
+          "LightSensorService"
+        ]
+      }
+    },
+    "/sensors/lightsensors/{id}": {
+      "get": {
+        "operationId": "getLightSensorById",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/commonGetLightSensorByIdResponse"
+            }
+          },
+          "404": {
+            "description": "Returned when the resource does not exist.",
+            "schema": {
+              "type": "string",
+              "format": "string"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "LightSensorService"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "commonCreateLightSensorResponse": {
+      "type": "object",
+      "properties": {
+        "light_sensor": {
+          "$ref": "#/definitions/commonLightSensor"
+        }
+      }
+    },
+    "commonGetLightSensorByIdResponse": {
+      "type": "object",
+      "properties": {
+        "light_sensor": {
+          "$ref": "#/definitions/commonLightSensor"
+        }
+      }
+    },
+    "commonGetLightSensorsResponse": {
+      "type": "object",
+      "properties": {
+        "light_sensors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/commonLightSensor"
+          }
+        }
+      }
+    },
+    "commonLightSensor": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "value": {
+          "type": "number",
+          "format": "double"
+        },
+        "creation_time": {
+          "type": "string",
+          "format": "int64"
+        },
+        "last_update_time": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    }
+  }
+}

@@ -1,17 +1,44 @@
 syntax = "proto3";
 
-import "google/api/annotations.proto";
-import "light_sensor.proto";
-
 package lgbsttracker;
 
-service ItemService {
+import "google/api/annotations.proto";
+import "light_sensor.proto";
+import "protoc-gen-swagger/options/annotations.proto";
 
-  rpc getLightSensorById (common.GetLightSensorById) returns (GetLightSensorById.Response) {
+option (grpc.gateway.protoc_gen_swagger.options.openapiv2_swagger) = {
+	info: {
+		title: "Lego Boost Tracker";
+		version: "v1";
+		contact: {
+			name: "Lego Boost Tracker";
+			url: "https://github.com/py4mac/lgbsttracker";
+			email: "boisbu@gmail.com";
+        };
+    };
+    schemes: HTTP;
+    consumes: "application/json";
+    produces: "application/json";
+    responses: {
+		key: "404";
+		value: {
+			description: "Returned when the resource does not exist.";
+			schema: {
+				json_schema: {
+					type: STRING;
+				}
+			}
+		}
+	}
+};
+
+service LightSensorService {
+
+  rpc getLightSensorById (common.GetLightSensorById) returns (common.GetLightSensorById.Response) {
     option (google.api.http).get = "/sensors/lightsensors/{id}";
   }
 
-  rpc getLightSensors (common.getLightSensors) returns (common.getLightSensors.Response) {
+  rpc getLightSensors (common.GetLightSensors) returns (common.GetLightSensors.Response) {
     option (google.api.http).get = "/sensors/lightsensors";
   }
 
