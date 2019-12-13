@@ -15,17 +15,17 @@ _sym_db = _symbol_database.Default()
 
 
 import generic_pb2 as generic__pb2
-import item_pb2 as item__pb2
+import light_sensor_pb2 as light__sensor__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='service.proto',
-  package='py4mac',
+  package='lgbsttracker',
   syntax='proto2',
   serialized_options=_b('\220\001\001'),
-  serialized_pb=_b('\n\rservice.proto\x12\x06py4mac\x1a\rgeneric.proto\x1a\nitem.proto2\xb6\x02\n\x07RestApi\x12\x66\n\x07getItem\x12\x0f.common.GetItem\x1a\x18.common.GetItem.Response\"0\xf2\x86\x19,\n\x18\n\x03GET\x12\x0b/items/{id}\x1a\x04\x08\x02\x10\x00\x10\x01*\x0eGet Item by Id\x12_\n\x08getItems\x12\x10.common.GetItems\x1a\x19.common.GetItems.Response\"&\xf2\x86\x19\"\n\x13\n\x03GET\x12\x06/items\x1a\x04\x08\x02\x10\x00\x10\x01*\tGet Items\x12\x62\n\x08postItem\x12\x10.common.PostItem\x1a\x19.common.PostItem.Response\")\xf2\x86\x19%\n\x14\n\x04POST\x12\x06/items\x1a\x04\x08\x02\x10\x00\x10\x01*\x0b\x43reate ItemB\x03\x90\x01\x01')
+  serialized_pb=_b('\n\rservice.proto\x12\x0clgbsttracker\x1a\rgeneric.proto\x1a\x12light_sensor.proto2\xcc\x03\n\x07RestApi\x12\x9d\x01\n\x12getLightSensorById\x12\x1a.common.GetLightSensorById\x1a#.common.GetLightSensorById.Response\"F\xf2\x86\x19\x42\n\'\n\x03GET\x12\x1a/sensors/lightsensors/<id>\x1a\x04\x08\x02\x10\x00\x10\x01*\x15Get LightSensor by Id\x12\x8a\x01\n\x0fgetLightSensors\x12\x17.common.GetLightSensors\x1a .common.GetLightSensors.Response\"<\xf2\x86\x19\x38\n\"\n\x03GET\x12\x15/sensors/lightsensors\x1a\x04\x08\x02\x10\x00\x10\x01*\x10Get LightSensors\x12\x93\x01\n\x11\x63reateLightSensor\x12\x19.common.CreateLightSensor\x1a\".common.CreateLightSensor.Response\"?\xf2\x86\x19;\n#\n\x04POST\x12\x15/sensors/lightsensors\x1a\x04\x08\x02\x10\x00\x10\x01*\x12\x43reate LightSensorB\x03\x90\x01\x01')
   ,
-  dependencies=[generic__pb2.DESCRIPTOR,item__pb2.DESCRIPTOR,])
+  dependencies=[generic__pb2.DESCRIPTOR,light__sensor__pb2.DESCRIPTOR,])
 
 
 
@@ -36,39 +36,39 @@ DESCRIPTOR._options = None
 
 _RESTAPI = _descriptor.ServiceDescriptor(
   name='RestApi',
-  full_name='py4mac.RestApi',
+  full_name='lgbsttracker.RestApi',
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=53,
-  serialized_end=363,
+  serialized_start=67,
+  serialized_end=527,
   methods=[
   _descriptor.MethodDescriptor(
-    name='getItem',
-    full_name='py4mac.RestApi.getItem',
+    name='getLightSensorById',
+    full_name='lgbsttracker.RestApi.getLightSensorById',
     index=0,
     containing_service=None,
-    input_type=item__pb2._GETITEM,
-    output_type=item__pb2._GETITEM_RESPONSE,
-    serialized_options=_b('\362\206\031,\n\030\n\003GET\022\013/items/{id}\032\004\010\002\020\000\020\001*\016Get Item by Id'),
+    input_type=light__sensor__pb2._GETLIGHTSENSORBYID,
+    output_type=light__sensor__pb2._GETLIGHTSENSORBYID_RESPONSE,
+    serialized_options=_b('\362\206\031B\n\'\n\003GET\022\032/sensors/lightsensors/<id>\032\004\010\002\020\000\020\001*\025Get LightSensor by Id'),
   ),
   _descriptor.MethodDescriptor(
-    name='getItems',
-    full_name='py4mac.RestApi.getItems',
+    name='getLightSensors',
+    full_name='lgbsttracker.RestApi.getLightSensors',
     index=1,
     containing_service=None,
-    input_type=item__pb2._GETITEMS,
-    output_type=item__pb2._GETITEMS_RESPONSE,
-    serialized_options=_b('\362\206\031\"\n\023\n\003GET\022\006/items\032\004\010\002\020\000\020\001*\tGet Items'),
+    input_type=light__sensor__pb2._GETLIGHTSENSORS,
+    output_type=light__sensor__pb2._GETLIGHTSENSORS_RESPONSE,
+    serialized_options=_b('\362\206\0318\n\"\n\003GET\022\025/sensors/lightsensors\032\004\010\002\020\000\020\001*\020Get LightSensors'),
   ),
   _descriptor.MethodDescriptor(
-    name='postItem',
-    full_name='py4mac.RestApi.postItem',
+    name='createLightSensor',
+    full_name='lgbsttracker.RestApi.createLightSensor',
     index=2,
     containing_service=None,
-    input_type=item__pb2._POSTITEM,
-    output_type=item__pb2._POSTITEM_RESPONSE,
-    serialized_options=_b('\362\206\031%\n\024\n\004POST\022\006/items\032\004\010\002\020\000\020\001*\013Create Item'),
+    input_type=light__sensor__pb2._CREATELIGHTSENSOR,
+    output_type=light__sensor__pb2._CREATELIGHTSENSOR_RESPONSE,
+    serialized_options=_b('\362\206\031;\n#\n\004POST\022\025/sensors/lightsensors\032\004\010\002\020\000\020\001*\022Create LightSensor'),
   ),
 ])
 _sym_db.RegisterServiceDescriptor(_RESTAPI)

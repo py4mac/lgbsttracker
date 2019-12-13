@@ -1,32 +1,21 @@
-// syntax = "proto2";
-
-// package mlflow;
-
-// import "scalapb/scalapb.proto";
-// import "databricks.proto";
-
-// option py_generic_services = true;
-// option (scalapb.options) = {
-//   flat_package: true,
-// };
-
 syntax = "proto3";
 
 import "google/api/annotations.proto";
+import "light_sensor.proto";
 
-package py4mac;
+package lgbsttracker;
 
 service ItemService {
 
-  rpc getItem (GetItem) returns (GetItem.Response) {
-    option (google.api.http).get = "/items/{id}";
+  rpc getLightSensorById (common.GetLightSensorById) returns (GetLightSensorById.Response) {
+    option (google.api.http).get = "/sensors/lightsensors/{id}";
   }
 
-  rpc getItems (GetItems) returns (GetItems.Response) {
-    option (google.api.http).get = "/items";
+  rpc getLightSensors (common.getLightSensors) returns (common.getLightSensors.Response) {
+    option (google.api.http).get = "/sensors/lightsensors";
   }
 
-  rpc getItem (GetItems) returns (PostItem.Response) {
-    option (google.api.http).post = "/items";
+  rpc createLightSensor (common.CreateLightSensor) returns (common.CreateLightSensor.Response) {
+    option (google.api.http).post = "/sensors/lightsensors";
   }
 }

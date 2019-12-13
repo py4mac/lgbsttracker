@@ -1,6 +1,6 @@
 import "google/protobuf/descriptor.proto";
 
-package py4mac;
+package lgbsttracker;
 
 message MessageOptions {
   // additional classes and traits to mix in to the case class.

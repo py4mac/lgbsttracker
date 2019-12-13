@@ -18,16 +18,16 @@ from google.protobuf import descriptor_pb2 as google_dot_protobuf_dot_descriptor
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='generic.proto',
-  package='py4mac',
+  package='lgbsttracker',
   syntax='proto2',
   serialized_options=None,
-  serialized_pb=_b('\n\rgeneric.proto\x12\x06py4mac\x1a google/protobuf/descriptor.proto\"!\n\x0eMessageOptions\x12\x0f\n\x07\x65xtends\x18\x01 \x03(\t\"\xca\x01\n\x11GenericRpcOptions\x12\'\n\tendpoints\x18\x01 \x03(\x0b\x32\x14.py4mac.HttpEndpoint\x12&\n\nvisibility\x18\x02 \x01(\x0e\x32\x12.py4mac.Visibility\x12&\n\x0b\x65rror_codes\x18\x03 \x03(\x0e\x32\x11.py4mac.ErrorCode\x12%\n\nrate_limit\x18\x04 \x01(\x0b\x32\x11.py4mac.RateLimit\x12\x15\n\rrpc_doc_title\x18\x05 \x01(\t\"U\n\x0cHttpEndpoint\x12\x14\n\x06method\x18\x01 \x01(\t:\x04POST\x12\x0c\n\x04path\x18\x02 \x01(\t\x12!\n\x05since\x18\x03 \x01(\x0b\x32\x12.py4mac.ApiVersion\"*\n\nApiVersion\x12\r\n\x05major\x18\x01 \x01(\x05\x12\r\n\x05minor\x18\x02 \x01(\x05\"@\n\tRateLimit\x12\x11\n\tmax_burst\x18\x01 \x01(\x03\x12 \n\x18max_sustained_per_second\x18\x02 \x01(\x03\"\x93\x01\n\x15\x44ocumentationMetadata\x12\x11\n\tdocstring\x18\x01 \x01(\t\x12\x10\n\x08lead_doc\x18\x02 \x01(\t\x12&\n\nvisibility\x18\x03 \x01(\x0e\x32\x12.py4mac.Visibility\x12\x1b\n\x13original_proto_path\x18\x04 \x03(\t\x12\x10\n\x08position\x18\x05 \x01(\x05\"k\n\x1cGenericServiceExceptionProto\x12%\n\nerror_code\x18\x01 \x01(\x0e\x32\x11.py4mac.ErrorCode\x12\x0f\n\x07message\x18\x02 \x01(\t\x12\x13\n\x0bstack_trace\x18\x03 \x01(\t*?\n\nVisibility\x12\n\n\x06PUBLIC\x10\x01\x12\x0c\n\x08INTERNAL\x10\x02\x12\x17\n\x13PUBLIC_UNDOCUMENTED\x10\x03*\xf6\x04\n\tErrorCode\x12\x12\n\x0eINTERNAL_ERROR\x10\x01\x12\x1b\n\x17TEMPORARILY_UNAVAILABLE\x10\x02\x12\x0c\n\x08IO_ERROR\x10\x03\x12\x0f\n\x0b\x42\x41\x44_REQUEST\x10\x04\x12\x1c\n\x17INVALID_PARAMETER_VALUE\x10\xe8\x07\x12\x17\n\x12\x45NDPOINT_NOT_FOUND\x10\xe9\x07\x12\x16\n\x11MALFORMED_REQUEST\x10\xea\x07\x12\x12\n\rINVALID_STATE\x10\xeb\x07\x12\x16\n\x11PERMISSION_DENIED\x10\xec\x07\x12\x15\n\x10\x46\x45\x41TURE_DISABLED\x10\xed\x07\x12\x1a\n\x15\x43USTOMER_UNAUTHORIZED\x10\xee\x07\x12\x1b\n\x16REQUEST_LIMIT_EXCEEDED\x10\xef\x07\x12\x1d\n\x18INVALID_STATE_TRANSITION\x10\xd1\x0f\x12\x1b\n\x16\x43OULD_NOT_ACQUIRE_LOCK\x10\xd2\x0f\x12\x1c\n\x17RESOURCE_ALREADY_EXISTS\x10\xb9\x17\x12\x1c\n\x17RESOURCE_DOES_NOT_EXIST\x10\xba\x17\x12\x13\n\x0eQUOTA_EXCEEDED\x10\xa1\x1f\x12\x1c\n\x17MAX_BLOCK_SIZE_EXCEEDED\x10\xa2\x1f\x12\x1b\n\x16MAX_READ_SIZE_EXCEEDED\x10\xa3\x1f\x12\x13\n\x0e\x44RY_RUN_FAILED\x10\x89\'\x12\x1c\n\x17RESOURCE_LIMIT_EXCEEDED\x10\x8a\'\x12\x18\n\x13\x44IRECTORY_NOT_EMPTY\x10\xf1.\x12\x18\n\x13\x44IRECTORY_PROTECTED\x10\xf2.\x12\x1f\n\x1aMAX_NOTEBOOK_SIZE_EXCEEDED\x10\xf3.:I\n\x07message\x12\x1f.google.protobuf.MessageOptions\x18\xfc\x07 \x01(\x0b\x32\x16.py4mac.MessageOptions:H\n\x03rpc\x12\x1e.google.protobuf.MethodOptions\x18\xee\x90\x03 \x01(\x0b\x32\x19.py4mac.GenericRpcOptions:S\n\nmethod_doc\x12\x1e.google.protobuf.MethodOptions\x18\xf2\x90\x03 \x03(\x0b\x32\x1d.py4mac.DocumentationMetadata:U\n\x0bmessage_doc\x12\x1f.google.protobuf.MessageOptions\x18\xf2\x90\x03 \x03(\x0b\x32\x1d.py4mac.DocumentationMetadata:U\n\x0bservice_doc\x12\x1f.google.protobuf.ServiceOptions\x18\xf2\x90\x03 \x03(\x0b\x32\x1d.py4mac.DocumentationMetadata:O\n\x08\x65num_doc\x12\x1c.google.protobuf.EnumOptions\x18\xf2\x90\x03 \x03(\x0b\x32\x1d.py4mac.DocumentationMetadata:V\n\x15\x65num_value_visibility\x12!.google.protobuf.EnumValueOptions\x18\xee\x90\x03 \x01(\x0e\x32\x12.py4mac.Visibility:Z\n\x0e\x65num_value_doc\x12!.google.protobuf.EnumValueOptions\x18\xf2\x90\x03 \x03(\x0b\x32\x1d.py4mac.DocumentationMetadata')
+  serialized_pb=_b('\n\rgeneric.proto\x12\x0clgbsttracker\x1a google/protobuf/descriptor.proto\"!\n\x0eMessageOptions\x12\x0f\n\x07\x65xtends\x18\x01 \x03(\t\"\xe2\x01\n\x11GenericRpcOptions\x12-\n\tendpoints\x18\x01 \x03(\x0b\x32\x1a.lgbsttracker.HttpEndpoint\x12,\n\nvisibility\x18\x02 \x01(\x0e\x32\x18.lgbsttracker.Visibility\x12,\n\x0b\x65rror_codes\x18\x03 \x03(\x0e\x32\x17.lgbsttracker.ErrorCode\x12+\n\nrate_limit\x18\x04 \x01(\x0b\x32\x17.lgbsttracker.RateLimit\x12\x15\n\rrpc_doc_title\x18\x05 \x01(\t\"[\n\x0cHttpEndpoint\x12\x14\n\x06method\x18\x01 \x01(\t:\x04POST\x12\x0c\n\x04path\x18\x02 \x01(\t\x12\'\n\x05since\x18\x03 \x01(\x0b\x32\x18.lgbsttracker.ApiVersion\"*\n\nApiVersion\x12\r\n\x05major\x18\x01 \x01(\x05\x12\r\n\x05minor\x18\x02 \x01(\x05\"@\n\tRateLimit\x12\x11\n\tmax_burst\x18\x01 \x01(\x03\x12 \n\x18max_sustained_per_second\x18\x02 \x01(\x03\"\x99\x01\n\x15\x44ocumentationMetadata\x12\x11\n\tdocstring\x18\x01 \x01(\t\x12\x10\n\x08lead_doc\x18\x02 \x01(\t\x12,\n\nvisibility\x18\x03 \x01(\x0e\x32\x18.lgbsttracker.Visibility\x12\x1b\n\x13original_proto_path\x18\x04 \x03(\t\x12\x10\n\x08position\x18\x05 \x01(\x05\"q\n\x1cGenericServiceExceptionProto\x12+\n\nerror_code\x18\x01 \x01(\x0e\x32\x17.lgbsttracker.ErrorCode\x12\x0f\n\x07message\x18\x02 \x01(\t\x12\x13\n\x0bstack_trace\x18\x03 \x01(\t*?\n\nVisibility\x12\n\n\x06PUBLIC\x10\x01\x12\x0c\n\x08INTERNAL\x10\x02\x12\x17\n\x13PUBLIC_UNDOCUMENTED\x10\x03*\xf6\x04\n\tErrorCode\x12\x12\n\x0eINTERNAL_ERROR\x10\x01\x12\x1b\n\x17TEMPORARILY_UNAVAILABLE\x10\x02\x12\x0c\n\x08IO_ERROR\x10\x03\x12\x0f\n\x0b\x42\x41\x44_REQUEST\x10\x04\x12\x1c\n\x17INVALID_PARAMETER_VALUE\x10\xe8\x07\x12\x17\n\x12\x45NDPOINT_NOT_FOUND\x10\xe9\x07\x12\x16\n\x11MALFORMED_REQUEST\x10\xea\x07\x12\x12\n\rINVALID_STATE\x10\xeb\x07\x12\x16\n\x11PERMISSION_DENIED\x10\xec\x07\x12\x15\n\x10\x46\x45\x41TURE_DISABLED\x10\xed\x07\x12\x1a\n\x15\x43USTOMER_UNAUTHORIZED\x10\xee\x07\x12\x1b\n\x16REQUEST_LIMIT_EXCEEDED\x10\xef\x07\x12\x1d\n\x18INVALID_STATE_TRANSITION\x10\xd1\x0f\x12\x1b\n\x16\x43OULD_NOT_ACQUIRE_LOCK\x10\xd2\x0f\x12\x1c\n\x17RESOURCE_ALREADY_EXISTS\x10\xb9\x17\x12\x1c\n\x17RESOURCE_DOES_NOT_EXIST\x10\xba\x17\x12\x13\n\x0eQUOTA_EXCEEDED\x10\xa1\x1f\x12\x1c\n\x17MAX_BLOCK_SIZE_EXCEEDED\x10\xa2\x1f\x12\x1b\n\x16MAX_READ_SIZE_EXCEEDED\x10\xa3\x1f\x12\x13\n\x0e\x44RY_RUN_FAILED\x10\x89\'\x12\x1c\n\x17RESOURCE_LIMIT_EXCEEDED\x10\x8a\'\x12\x18\n\x13\x44IRECTORY_NOT_EMPTY\x10\xf1.\x12\x18\n\x13\x44IRECTORY_PROTECTED\x10\xf2.\x12\x1f\n\x1aMAX_NOTEBOOK_SIZE_EXCEEDED\x10\xf3.:O\n\x07message\x12\x1f.google.protobuf.MessageOptions\x18\xfc\x07 \x01(\x0b\x32\x1c.lgbsttracker.MessageOptions:N\n\x03rpc\x12\x1e.google.protobuf.MethodOptions\x18\xee\x90\x03 \x01(\x0b\x32\x1f.lgbsttracker.GenericRpcOptions:Y\n\nmethod_doc\x12\x1e.google.protobuf.MethodOptions\x18\xf2\x90\x03 \x03(\x0b\x32#.lgbsttracker.DocumentationMetadata:[\n\x0bmessage_doc\x12\x1f.google.protobuf.MessageOptions\x18\xf2\x90\x03 \x03(\x0b\x32#.lgbsttracker.DocumentationMetadata:[\n\x0bservice_doc\x12\x1f.google.protobuf.ServiceOptions\x18\xf2\x90\x03 \x03(\x0b\x32#.lgbsttracker.DocumentationMetadata:U\n\x08\x65num_doc\x12\x1c.google.protobuf.EnumOptions\x18\xf2\x90\x03 \x03(\x0b\x32#.lgbsttracker.DocumentationMetadata:\\\n\x15\x65num_value_visibility\x12!.google.protobuf.EnumValueOptions\x18\xee\x90\x03 \x01(\x0e\x32\x18.lgbsttracker.Visibility:`\n\x0e\x65num_value_doc\x12!.google.protobuf.EnumValueOptions\x18\xf2\x90\x03 \x03(\x0b\x32#.lgbsttracker.DocumentationMetadata')
   ,
   dependencies=[google_dot_protobuf_dot_descriptor__pb2.DESCRIPTOR,])
 
 _VISIBILITY = _descriptor.EnumDescriptor(
   name='Visibility',
-  full_name='py4mac.Visibility',
+  full_name='lgbsttracker.Visibility',
   filename=None,
   file=DESCRIPTOR,
   values=[
@@ -46,15 +46,15 @@ _VISIBILITY = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=755,
-  serialized_end=818,
+  serialized_start=803,
+  serialized_end=866,
 )
 _sym_db.RegisterEnumDescriptor(_VISIBILITY)
 
 Visibility = enum_type_wrapper.EnumTypeWrapper(_VISIBILITY)
 _ERRORCODE = _descriptor.EnumDescriptor(
   name='ErrorCode',
-  full_name='py4mac.ErrorCode',
+  full_name='lgbsttracker.ErrorCode',
   filename=None,
   file=DESCRIPTOR,
   values=[
@@ -157,8 +157,8 @@ _ERRORCODE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=821,
-  serialized_end=1451,
+  serialized_start=869,
+  serialized_end=1499,
 )
 _sym_db.RegisterEnumDescriptor(_ERRORCODE)
 
@@ -193,7 +193,7 @@ MAX_NOTEBOOK_SIZE_EXCEEDED = 6003
 
 MESSAGE_FIELD_NUMBER = 1020
 message = _descriptor.FieldDescriptor(
-  name='message', full_name='py4mac.message', index=0,
+  name='message', full_name='lgbsttracker.message', index=0,
   number=1020, type=11, cpp_type=10, label=1,
   has_default_value=False, default_value=None,
   message_type=None, enum_type=None, containing_type=None,
@@ -201,7 +201,7 @@ message = _descriptor.FieldDescriptor(
   serialized_options=None, file=DESCRIPTOR)
 RPC_FIELD_NUMBER = 51310
 rpc = _descriptor.FieldDescriptor(
-  name='rpc', full_name='py4mac.rpc', index=1,
+  name='rpc', full_name='lgbsttracker.rpc', index=1,
   number=51310, type=11, cpp_type=10, label=1,
   has_default_value=False, default_value=None,
   message_type=None, enum_type=None, containing_type=None,
@@ -209,7 +209,7 @@ rpc = _descriptor.FieldDescriptor(
   serialized_options=None, file=DESCRIPTOR)
 METHOD_DOC_FIELD_NUMBER = 51314
 method_doc = _descriptor.FieldDescriptor(
-  name='method_doc', full_name='py4mac.method_doc', index=2,
+  name='method_doc', full_name='lgbsttracker.method_doc', index=2,
   number=51314, type=11, cpp_type=10, label=3,
   has_default_value=False, default_value=[],
   message_type=None, enum_type=None, containing_type=None,
@@ -217,7 +217,7 @@ method_doc = _descriptor.FieldDescriptor(
   serialized_options=None, file=DESCRIPTOR)
 MESSAGE_DOC_FIELD_NUMBER = 51314
 message_doc = _descriptor.FieldDescriptor(
-  name='message_doc', full_name='py4mac.message_doc', index=3,
+  name='message_doc', full_name='lgbsttracker.message_doc', index=3,
   number=51314, type=11, cpp_type=10, label=3,
   has_default_value=False, default_value=[],
   message_type=None, enum_type=None, containing_type=None,
@@ -225,7 +225,7 @@ message_doc = _descriptor.FieldDescriptor(
   serialized_options=None, file=DESCRIPTOR)
 SERVICE_DOC_FIELD_NUMBER = 51314
 service_doc = _descriptor.FieldDescriptor(
-  name='service_doc', full_name='py4mac.service_doc', index=4,
+  name='service_doc', full_name='lgbsttracker.service_doc', index=4,
   number=51314, type=11, cpp_type=10, label=3,
   has_default_value=False, default_value=[],
   message_type=None, enum_type=None, containing_type=None,
@@ -233,7 +233,7 @@ service_doc = _descriptor.FieldDescriptor(
   serialized_options=None, file=DESCRIPTOR)
 ENUM_DOC_FIELD_NUMBER = 51314
 enum_doc = _descriptor.FieldDescriptor(
-  name='enum_doc', full_name='py4mac.enum_doc', index=5,
+  name='enum_doc', full_name='lgbsttracker.enum_doc', index=5,
   number=51314, type=11, cpp_type=10, label=3,
   has_default_value=False, default_value=[],
   message_type=None, enum_type=None, containing_type=None,
@@ -241,7 +241,7 @@ enum_doc = _descriptor.FieldDescriptor(
   serialized_options=None, file=DESCRIPTOR)
 ENUM_VALUE_VISIBILITY_FIELD_NUMBER = 51310
 enum_value_visibility = _descriptor.FieldDescriptor(
-  name='enum_value_visibility', full_name='py4mac.enum_value_visibility', index=6,
+  name='enum_value_visibility', full_name='lgbsttracker.enum_value_visibility', index=6,
   number=51310, type=14, cpp_type=8, label=1,
   has_default_value=False, default_value=1,
   message_type=None, enum_type=None, containing_type=None,
@@ -249,7 +249,7 @@ enum_value_visibility = _descriptor.FieldDescriptor(
   serialized_options=None, file=DESCRIPTOR)
 ENUM_VALUE_DOC_FIELD_NUMBER = 51314
 enum_value_doc = _descriptor.FieldDescriptor(
-  name='enum_value_doc', full_name='py4mac.enum_value_doc', index=7,
+  name='enum_value_doc', full_name='lgbsttracker.enum_value_doc', index=7,
   number=51314, type=11, cpp_type=10, label=3,
   has_default_value=False, default_value=[],
   message_type=None, enum_type=None, containing_type=None,
@@ -259,13 +259,13 @@ enum_value_doc = _descriptor.FieldDescriptor(
 
 _MESSAGEOPTIONS = _descriptor.Descriptor(
   name='MessageOptions',
-  full_name='py4mac.MessageOptions',
+  full_name='lgbsttracker.MessageOptions',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='extends', full_name='py4mac.MessageOptions.extends', index=0,
+      name='extends', full_name='lgbsttracker.MessageOptions.extends', index=0,
       number=1, type=9, cpp_type=9, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -283,48 +283,48 @@ _MESSAGEOPTIONS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=59,
-  serialized_end=92,
+  serialized_start=65,
+  serialized_end=98,
 )
 
 
 _GENERICRPCOPTIONS = _descriptor.Descriptor(
   name='GenericRpcOptions',
-  full_name='py4mac.GenericRpcOptions',
+  full_name='lgbsttracker.GenericRpcOptions',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='endpoints', full_name='py4mac.GenericRpcOptions.endpoints', index=0,
+      name='endpoints', full_name='lgbsttracker.GenericRpcOptions.endpoints', index=0,
       number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='visibility', full_name='py4mac.GenericRpcOptions.visibility', index=1,
+      name='visibility', full_name='lgbsttracker.GenericRpcOptions.visibility', index=1,
       number=2, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=1,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='error_codes', full_name='py4mac.GenericRpcOptions.error_codes', index=2,
+      name='error_codes', full_name='lgbsttracker.GenericRpcOptions.error_codes', index=2,
       number=3, type=14, cpp_type=8, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='rate_limit', full_name='py4mac.GenericRpcOptions.rate_limit', index=3,
+      name='rate_limit', full_name='lgbsttracker.GenericRpcOptions.rate_limit', index=3,
       number=4, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='rpc_doc_title', full_name='py4mac.GenericRpcOptions.rpc_doc_title', index=4,
+      name='rpc_doc_title', full_name='lgbsttracker.GenericRpcOptions.rpc_doc_title', index=4,
       number=5, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -342,34 +342,34 @@ _GENERICRPCOPTIONS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=95,
-  serialized_end=297,
+  serialized_start=101,
+  serialized_end=327,
 )
 
 
 _HTTPENDPOINT = _descriptor.Descriptor(
   name='HttpEndpoint',
-  full_name='py4mac.HttpEndpoint',
+  full_name='lgbsttracker.HttpEndpoint',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='method', full_name='py4mac.HttpEndpoint.method', index=0,
+      name='method', full_name='lgbsttracker.HttpEndpoint.method', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=True, default_value=_b("POST").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='path', full_name='py4mac.HttpEndpoint.path', index=1,
+      name='path', full_name='lgbsttracker.HttpEndpoint.path', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='since', full_name='py4mac.HttpEndpoint.since', index=2,
+      name='since', full_name='lgbsttracker.HttpEndpoint.since', index=2,
       number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -387,27 +387,27 @@ _HTTPENDPOINT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=299,
-  serialized_end=384,
+  serialized_start=329,
+  serialized_end=420,
 )
 
 
 _APIVERSION = _descriptor.Descriptor(
   name='ApiVersion',
-  full_name='py4mac.ApiVersion',
+  full_name='lgbsttracker.ApiVersion',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='major', full_name='py4mac.ApiVersion.major', index=0,
+      name='major', full_name='lgbsttracker.ApiVersion.major', index=0,
       number=1, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='minor', full_name='py4mac.ApiVersion.minor', index=1,
+      name='minor', full_name='lgbsttracker.ApiVersion.minor', index=1,
       number=2, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -425,27 +425,27 @@ _APIVERSION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=386,
-  serialized_end=428,
+  serialized_start=422,
+  serialized_end=464,
 )
 
 
 _RATELIMIT = _descriptor.Descriptor(
   name='RateLimit',
-  full_name='py4mac.RateLimit',
+  full_name='lgbsttracker.RateLimit',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='max_burst', full_name='py4mac.RateLimit.max_burst', index=0,
+      name='max_burst', full_name='lgbsttracker.RateLimit.max_burst', index=0,
       number=1, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='max_sustained_per_second', full_name='py4mac.RateLimit.max_sustained_per_second', index=1,
+      name='max_sustained_per_second', full_name='lgbsttracker.RateLimit.max_sustained_per_second', index=1,
       number=2, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -463,48 +463,48 @@ _RATELIMIT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=430,
-  serialized_end=494,
+  serialized_start=466,
+  serialized_end=530,
 )
 
 
 _DOCUMENTATIONMETADATA = _descriptor.Descriptor(
   name='DocumentationMetadata',
-  full_name='py4mac.DocumentationMetadata',
+  full_name='lgbsttracker.DocumentationMetadata',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='docstring', full_name='py4mac.DocumentationMetadata.docstring', index=0,
+      name='docstring', full_name='lgbsttracker.DocumentationMetadata.docstring', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='lead_doc', full_name='py4mac.DocumentationMetadata.lead_doc', index=1,
+      name='lead_doc', full_name='lgbsttracker.DocumentationMetadata.lead_doc', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='visibility', full_name='py4mac.DocumentationMetadata.visibility', index=2,
+      name='visibility', full_name='lgbsttracker.DocumentationMetadata.visibility', index=2,
       number=3, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=1,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='original_proto_path', full_name='py4mac.DocumentationMetadata.original_proto_path', index=3,
+      name='original_proto_path', full_name='lgbsttracker.DocumentationMetadata.original_proto_path', index=3,
       number=4, type=9, cpp_type=9, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='position', full_name='py4mac.DocumentationMetadata.position', index=4,
+      name='position', full_name='lgbsttracker.DocumentationMetadata.position', index=4,
       number=5, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -522,34 +522,34 @@ _DOCUMENTATIONMETADATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=497,
-  serialized_end=644,
+  serialized_start=533,
+  serialized_end=686,
 )
 
 
 _GENERICSERVICEEXCEPTIONPROTO = _descriptor.Descriptor(
   name='GenericServiceExceptionProto',
-  full_name='py4mac.GenericServiceExceptionProto',
+  full_name='lgbsttracker.GenericServiceExceptionProto',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='error_code', full_name='py4mac.GenericServiceExceptionProto.error_code', index=0,
+      name='error_code', full_name='lgbsttracker.GenericServiceExceptionProto.error_code', index=0,
       number=1, type=14, cpp_type=8, label=1,
       has_default_value=False, default_value=1,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='message', full_name='py4mac.GenericServiceExceptionProto.message', index=1,
+      name='message', full_name='lgbsttracker.GenericServiceExceptionProto.message', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='stack_trace', full_name='py4mac.GenericServiceExceptionProto.stack_trace', index=2,
+      name='stack_trace', full_name='lgbsttracker.GenericServiceExceptionProto.stack_trace', index=2,
       number=3, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -567,8 +567,8 @@ _GENERICSERVICEEXCEPTIONPROTO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=646,
-  serialized_end=753,
+  serialized_start=688,
+  serialized_end=801,
 )
 
 _GENERICRPCOPTIONS.fields_by_name['endpoints'].message_type = _HTTPENDPOINT
@@ -600,49 +600,49 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 MessageOptions = _reflection.GeneratedProtocolMessageType('MessageOptions', (_message.Message,), dict(
   DESCRIPTOR = _MESSAGEOPTIONS,
   __module__ = 'generic_pb2'
-  # @@protoc_insertion_point(class_scope:py4mac.MessageOptions)
+  # @@protoc_insertion_point(class_scope:lgbsttracker.MessageOptions)
   ))
 _sym_db.RegisterMessage(MessageOptions)
 
 GenericRpcOptions = _reflection.GeneratedProtocolMessageType('GenericRpcOptions', (_message.Message,), dict(
   DESCRIPTOR = _GENERICRPCOPTIONS,
   __module__ = 'generic_pb2'
-  # @@protoc_insertion_point(class_scope:py4mac.GenericRpcOptions)
+  # @@protoc_insertion_point(class_scope:lgbsttracker.GenericRpcOptions)
   ))
 _sym_db.RegisterMessage(GenericRpcOptions)
 
 HttpEndpoint = _reflection.GeneratedProtocolMessageType('HttpEndpoint', (_message.Message,), dict(
   DESCRIPTOR = _HTTPENDPOINT,
   __module__ = 'generic_pb2'
-  # @@protoc_insertion_point(class_scope:py4mac.HttpEndpoint)
+  # @@protoc_insertion_point(class_scope:lgbsttracker.HttpEndpoint)
   ))
 _sym_db.RegisterMessage(HttpEndpoint)
 
 ApiVersion = _reflection.GeneratedProtocolMessageType('ApiVersion', (_message.Message,), dict(
   DESCRIPTOR = _APIVERSION,
   __module__ = 'generic_pb2'
-  # @@protoc_insertion_point(class_scope:py4mac.ApiVersion)
+  # @@protoc_insertion_point(class_scope:lgbsttracker.ApiVersion)
   ))
 _sym_db.RegisterMessage(ApiVersion)
 
 RateLimit = _reflection.GeneratedProtocolMessageType('RateLimit', (_message.Message,), dict(
   DESCRIPTOR = _RATELIMIT,
   __module__ = 'generic_pb2'
-  # @@protoc_insertion_point(class_scope:py4mac.RateLimit)
+  # @@protoc_insertion_point(class_scope:lgbsttracker.RateLimit)
   ))
 _sym_db.RegisterMessage(RateLimit)
 
 DocumentationMetadata = _reflection.GeneratedProtocolMessageType('DocumentationMetadata', (_message.Message,), dict(
   DESCRIPTOR = _DOCUMENTATIONMETADATA,
   __module__ = 'generic_pb2'
-  # @@protoc_insertion_point(class_scope:py4mac.DocumentationMetadata)
+  # @@protoc_insertion_point(class_scope:lgbsttracker.DocumentationMetadata)
   ))
 _sym_db.RegisterMessage(DocumentationMetadata)
 
 GenericServiceExceptionProto = _reflection.GeneratedProtocolMessageType('GenericServiceExceptionProto', (_message.Message,), dict(
   DESCRIPTOR = _GENERICSERVICEEXCEPTIONPROTO,
   __module__ = 'generic_pb2'
-  # @@protoc_insertion_point(class_scope:py4mac.GenericServiceExceptionProto)
+  # @@protoc_insertion_point(class_scope:lgbsttracker.GenericServiceExceptionProto)
   ))
 _sym_db.RegisterMessage(GenericServiceExceptionProto)
 

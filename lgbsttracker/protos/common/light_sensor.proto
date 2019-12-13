@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+package common;
+
+message GetLightSensorById {
+    string id = 1;
+
+    message Response {
+        LightSensor light_sensor = 1;
+    }
+}
+
+message CreateLightSensor {
+    LightSensor light_sensor = 1;
+    
+    message Response {
+        LightSensor light_sensor = 1;
+    }
+}
+
+message GetLightSensors {
+
+    message Response {
+        repeated LightSensor light_sensors = 1;
+    }
+}
+
+message LightSensor {
+    string id = 1;
+    string name = 2;
+    double value = 3;
+    int64 creation_time = 4;
+    int64 last_update_time = 5;
+}

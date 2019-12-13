@@ -1,47 +1,47 @@
 syntax = "proto2";
 
-package py4mac;
+package lgbsttracker;
 
 import "generic.proto";
-import "item.proto";
+import "light_sensor.proto";
 
 option py_generic_services = true;
 
 service RestApi {
 
-  rpc getItem (common.GetItem) returns (common.GetItem.Response) {
+  rpc getLightSensorById (common.GetLightSensorById) returns (common.GetLightSensorById.Response) {
     option (rpc) = {
       endpoints: [{
         method: "GET",
-        path: "/items/{id}",
+        path: "/sensors/lightsensors/<id>",
         since { major: 2, minor: 0 },
       }],
       visibility: PUBLIC,
-      rpc_doc_title: "Get Item by Id",
+      rpc_doc_title: "Get LightSensor by Id",
     };
   }
 
-  rpc getItems (common.GetItems) returns (common.GetItems.Response) {
+  rpc getLightSensors (common.GetLightSensors) returns (common.GetLightSensors.Response) {
     option (rpc) = {
       endpoints: [{
         method: "GET",
-        path: "/items",
+        path: "/sensors/lightsensors",
         since { major: 2, minor: 0 },
       }],
       visibility: PUBLIC,
-      rpc_doc_title: "Get Items",
+      rpc_doc_title: "Get LightSensors",
     };
   }
 
-  rpc postItem (common.PostItem) returns (common.PostItem.Response) {
+  rpc createLightSensor (common.CreateLightSensor) returns (common.CreateLightSensor.Response) {
     option (rpc) = {
       endpoints: [{
         method: "POST",
-        path: "/items",
+        path: "/sensors/lightsensors",
         since { major: 2, minor: 0 },
       }],
       visibility: PUBLIC,
-      rpc_doc_title: "Create Item",
+      rpc_doc_title: "Create LightSensor",
     };
   }
 }
