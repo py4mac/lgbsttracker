@@ -1,9 +1,18 @@
 import json
 
-from lgbsttracker.server.protos.rest.generic_pb2 import INTERNAL_ERROR, TEMPORARILY_UNAVAILABLE, \
-    ENDPOINT_NOT_FOUND, PERMISSION_DENIED, REQUEST_LIMIT_EXCEEDED, BAD_REQUEST, \
-    INVALID_PARAMETER_VALUE, RESOURCE_DOES_NOT_EXIST, INVALID_STATE, RESOURCE_ALREADY_EXISTS, \
-    ErrorCode
+from lgbsttracker.protos.generic_pb2 import (
+    INTERNAL_ERROR,
+    TEMPORARILY_UNAVAILABLE,
+    ENDPOINT_NOT_FOUND,
+    PERMISSION_DENIED,
+    REQUEST_LIMIT_EXCEEDED,
+    BAD_REQUEST,
+    INVALID_PARAMETER_VALUE,
+    RESOURCE_DOES_NOT_EXIST,
+    INVALID_STATE,
+    RESOURCE_ALREADY_EXISTS,
+    ErrorCode,
+)
 
 ERROR_CODE_TO_HTTP_STATUS = {
     ErrorCode.Name(INTERNAL_ERROR): 500,
@@ -15,7 +24,7 @@ ERROR_CODE_TO_HTTP_STATUS = {
     ErrorCode.Name(PERMISSION_DENIED): 403,
     ErrorCode.Name(BAD_REQUEST): 400,
     ErrorCode.Name(RESOURCE_ALREADY_EXISTS): 400,
-    ErrorCode.Name(INVALID_PARAMETER_VALUE): 400
+    ErrorCode.Name(INVALID_PARAMETER_VALUE): 400,
 }
 
 
@@ -46,7 +55,7 @@ class LgbsttrackerException(Exception):
         super(LgbsttrackerException, self).__init__(message)
 
     def serialize_as_json(self):
-        exception_dict = {'error_code': self.error_code, 'message': self.message}
+        exception_dict = {"error_code": self.error_code, "message": self.message}
         exception_dict.update(self.json_kwargs)
         return json.dumps(exception_dict)
 

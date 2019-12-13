@@ -1,19 +1,21 @@
-GATEWAY_FLAGS := -I. -I/usr/local/include -I$(GOPATH)/src/github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis -I/usr/local/go/src/github.com/grpc-ecosystem/grpc-gateway
-
-rest-code:
-	protoc -I=./rest -I=./common \
-		--python_out=../server/protos/rest \
-		./common/light_sensor.proto \
-		./rest/generic.proto \
-		./rest/service.proto
+rest-server:
+	protoc -I. -I/usr/local/go/src/github.com/grpc-ecosystem/grpc-gateway \
+		--python_out=. \
+		light_sensor.proto \
+		generic.proto \
+		sensors_api.proto
 
 swagger-doc:
-	protoc $(GATEWAY_FLAGS) \
-		-I=./common \
+	protoc -I. -I/usr/local/go/src/github.com/grpc-ecosystem/grpc-gateway \
 		--swagger_out=logtostderr=true:../server/doc \
-		./grpc/service_grpc.proto
-	mv ../server/doc/grpc/service_grpc.swagger.json ../server/doc/swagger.json
-	rm -rf ../server/doc/grpc/
+		sensors_api.proto
+	mv ../server/doc/sensors_api.swagger.json ../server/doc/swagger.json
+
+grpc-server:
+	python -m grpc_tools.protoc \
+		--python_out=. --grpc_python_out=. \
+		-I. -I/usr/local/include \
+		sensors_service.proto
 
 deps:
 	go get -u github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway

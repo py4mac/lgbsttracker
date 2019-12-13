@@ -1,10 +1,13 @@
-syntax = "proto3";
+syntax = "proto2";
 
 package lgbsttracker;
 
-import "google/api/annotations.proto";
+import "generic.proto";
 import "light_sensor.proto";
+import "google/api/annotations.proto";
 import "protoc-gen-swagger/options/annotations.proto";
+
+option py_generic_services = true;
 
 option (grpc.gateway.protoc_gen_swagger.options.openapiv2_swagger) = {
 	info: {
@@ -32,17 +35,44 @@ option (grpc.gateway.protoc_gen_swagger.options.openapiv2_swagger) = {
 	}
 };
 
-service LightSensorService {
+service SensorsApi {
 
   rpc getLightSensorById (common.GetLightSensorById) returns (common.GetLightSensorById.Response) {
     option (google.api.http).get = "/sensors/lightsensors/{id}";
+    option (rpc) = {
+      endpoints: [{
+        method: "GET",
+        path: "/sensors/lightsensors/<id>",
+        since { major: 2, minor: 0 },
+      }],
+      visibility: PUBLIC,
+      rpc_doc_title: "Get LightSensor by Id",
+    };
   }
 
   rpc getLightSensors (common.GetLightSensors) returns (common.GetLightSensors.Response) {
     option (google.api.http).get = "/sensors/lightsensors";
+    option (rpc) = {
+      endpoints: [{
+        method: "GET",
+        path: "/sensors/lightsensors",
+        since { major: 2, minor: 0 },
+      }],
+      visibility: PUBLIC,
+      rpc_doc_title: "Get LightSensors",
+    };
   }
 
   rpc createLightSensor (common.CreateLightSensor) returns (common.CreateLightSensor.Response) {
     option (google.api.http).post = "/sensors/lightsensors";
+    option (rpc) = {
+      endpoints: [{
+        method: "POST",
+        path: "/sensors/lightsensors",
+        since { major: 2, minor: 0 },
+      }],
+      visibility: PUBLIC,
+      rpc_doc_title: "Create LightSensor",
+    };
   }
 }

@@ -11,9 +11,9 @@ from sanic.request import Request
 
 from lgbsttracker.exceptions import LgbsttrackerException
 from lgbsttracker.utils.proto_json_utils import parse_dict, message_to_json
-from lgbsttracker.server.protos.rest.service_pb2 import RestApi
-from lgbsttracker.server.protos.rest.light_sensor_pb2 import GetLightSensorById, GetLightSensors, CreateLightSensor, LightSensor
-from lgbsttracker.server.protos.rest import generic_pb2
+from lgbsttracker.protos.sensors_api_pb2 import SensorsApi
+from lgbsttracker.protos.light_sensor_pb2 import GetLightSensorById, GetLightSensors, CreateLightSensor, LightSensor
+from lgbsttracker.protos import generic_pb2
 
 
 def _not_implemented():
@@ -47,7 +47,7 @@ def get_endpoints():
                     ret.append((http_path, handler, [endpoint.method]))
         return ret
 
-    return get_service_endpoints(RestApi)
+    return get_service_endpoints(SensorsApi)
 
 
 def _get_request_message(request_message, aiohttp_request):
