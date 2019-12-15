@@ -20,8 +20,12 @@ def _not_implemented():
     return response.json(status_code=404)
 
 
-def _get_paths(base_path):
-    return ["/api/v1{}".format(base_path)]
+def _get_path(base_path):
+    path = "/api/v1{}".format(base_path)
+    # path path as sanic expect parameters with <> pattern
+    path = path.replace("}", ">")
+    path = path.replace("{", "<")
+    return path
 
 
 def get_handler(request_class):
@@ -32,6 +36,21 @@ def get_handler(request_class):
     return HANDLERS.get(request_class, _not_implemented)
 
 
+def _search_endpoints(http_rule):
+    """ Return method, path. """
+    if http_rule.get != "":
+        return ["GET"], _get_path(http_rule.get)
+    elif http_rule.put != "":
+        return ["PUT"], _get_path(http_rule.put)
+    elif http_rule.get != "":
+        return ["POST"], _get_path(http_rule.post)
+    elif http_rule.get != "":
+        return ["DELETE"], _get_path(http_rule.delete)
+    elif http_rule.get != "":
+        return ["PATCH"], _get_path(http_rule.patch)
+    return [], None
+
+
 def get_endpoints():
     """
     :return: List of tuples (path, handler, methods)
@@ -40,11 +59,11 @@ def get_endpoints():
     def get_service_endpoints(service):
         ret = []
         for service_method in service.DESCRIPTOR.methods:
-            endpoints = service_method.GetOptions().Extensions[generic_pb2.rpc].endpoints
-            for endpoint in endpoints:
-                for http_path in _get_paths(endpoint.path):
-                    handler = get_handler(service().GetRequestClass(service_method))
-                    ret.append((http_path, handler, [endpoint.method]))
+            http_rule = service_method.GetOptions().Extensions[generic_pb2.http]
+            method, http_path = _search_endpoints(http_rule)
+            handler = get_handler(service().GetRequestClass(service_method))
+            if (len(method) == 1) and (http_path != ""):
+                ret.append((http_path, handler, method))
         return ret
 
     return get_service_endpoints(SensorsApi)

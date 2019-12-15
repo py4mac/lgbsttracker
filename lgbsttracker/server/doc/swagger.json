@@ -21,6 +21,8 @@
   "paths": {
     "/sensors/lightsensors": {
       "get": {
+        "summary": "Get All Light Sensors",
+        "description": "Return All Light Sensors",
         "operationId": "getLightSensors",
         "responses": {
           "200": {
@@ -32,9 +34,14 @@
           "404": {
             "description": "Returned when the resource does not exist.",
             "schema": {
-              "type": "string",
-              "format": "string"
+              "type": "integer",
+              "format": "integer"
             }
+          },
+          "503": {
+            "description": "Returned when the resource is temporarily unavailable.",
+            "schema": {},
+            "x-number": 100
           }
         },
         "tags": [
@@ -42,6 +49,8 @@
         ]
       },
       "post": {
+        "summary": "Create Light Sensor",
+        "description": "Create Light Sensor",
         "operationId": "createLightSensor",
         "responses": {
           "200": {
@@ -53,9 +62,14 @@
           "404": {
             "description": "Returned when the resource does not exist.",
             "schema": {
-              "type": "string",
-              "format": "string"
+              "type": "integer",
+              "format": "integer"
             }
+          },
+          "503": {
+            "description": "Returned when the resource is temporarily unavailable.",
+            "schema": {},
+            "x-number": 100
           }
         },
         "tags": [
@@ -65,6 +79,8 @@
     },
     "/sensors/lightsensors/{id}": {
       "get": {
+        "summary": "Get Light Sensor By Id",
+        "description": "Return Light Sensor by Identifier",
         "operationId": "getLightSensorById",
         "responses": {
           "200": {
@@ -76,9 +92,14 @@
           "404": {
             "description": "Returned when the resource does not exist.",
             "schema": {
-              "type": "string",
-              "format": "string"
+              "type": "integer",
+              "format": "integer"
             }
+          },
+          "503": {
+            "description": "Returned when the resource is temporarily unavailable.",
+            "schema": {},
+            "x-number": 100
           }
         },
         "parameters": [

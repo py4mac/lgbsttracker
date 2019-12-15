@@ -4,7 +4,6 @@ package lgbsttracker;
 
 import "generic.proto";
 import "light_sensor.proto";
-import "google/api/annotations.proto";
 import "protoc-gen-swagger/options/annotations.proto";
 
 option py_generic_services = true;
@@ -38,41 +37,98 @@ option (grpc.gateway.protoc_gen_swagger.options.openapiv2_swagger) = {
 service SensorsApi {
 
   rpc getLightSensorById (common.GetLightSensorById) returns (common.GetLightSensorById.Response) {
-    option (google.api.http).get = "/sensors/lightsensors/{id}";
-    option (rpc) = {
-      endpoints: [{
-        method: "GET",
-        path: "/sensors/lightsensors/<id>",
-        since { major: 2, minor: 0 },
-      }],
-      visibility: PUBLIC,
-      rpc_doc_title: "Get LightSensor by Id",
-    };
+    option (lgbsttracker.http).get = "/sensors/lightsensors/{id}";
+    option (grpc.gateway.protoc_gen_swagger.options.openapiv2_operation) = {
+		description: "Return Light Sensor by Identifier";
+		summary: "Get Light Sensor By Id";
+		responses: {
+			key: "503";
+			value: {
+				description: "Returned when the resource is temporarily unavailable.";
+				extensions: {
+					key: "x-number";
+					value {
+						number_value: 100;
+					}
+				}
+			}
+		}
+		responses: {
+			// Overwrites global definition.
+			key: "404";
+			value: {
+				description: "Returned when the resource does not exist.";
+				schema: {
+					json_schema: {
+						type: INTEGER;
+					}
+				}
+			}
+		}
+	};
   }
 
   rpc getLightSensors (common.GetLightSensors) returns (common.GetLightSensors.Response) {
-    option (google.api.http).get = "/sensors/lightsensors";
-    option (rpc) = {
-      endpoints: [{
-        method: "GET",
-        path: "/sensors/lightsensors",
-        since { major: 2, minor: 0 },
-      }],
-      visibility: PUBLIC,
-      rpc_doc_title: "Get LightSensors",
-    };
+	option (lgbsttracker.http).get = "/sensors/lightsensors";
+    option (grpc.gateway.protoc_gen_swagger.options.openapiv2_operation) = {
+		description: "Return All Light Sensors";
+		summary: "Get All Light Sensors";
+		responses: {
+			key: "503";
+			value: {
+				description: "Returned when the resource is temporarily unavailable.";
+				extensions: {
+					key: "x-number";
+					value {
+						number_value: 100;
+					}
+				}
+			}
+		}
+		responses: {
+			// Overwrites global definition.
+			key: "404";
+			value: {
+				description: "Returned when the resource does not exist.";
+				schema: {
+					json_schema: {
+						type: INTEGER;
+					}
+				}
+			}
+		}
+	};
   }
 
   rpc createLightSensor (common.CreateLightSensor) returns (common.CreateLightSensor.Response) {
-    option (google.api.http).post = "/sensors/lightsensors";
-    option (rpc) = {
-      endpoints: [{
-        method: "POST",
-        path: "/sensors/lightsensors",
-        since { major: 2, minor: 0 },
-      }],
-      visibility: PUBLIC,
-      rpc_doc_title: "Create LightSensor",
-    };
+	option (lgbsttracker.http).post = "/sensors/lightsensors";
+    option (grpc.gateway.protoc_gen_swagger.options.openapiv2_operation) = {
+		description: "Create Light Sensor";
+		summary: "Create Light Sensor";
+		responses: {
+			key: "503";
+			value: {
+				description: "Returned when the resource is temporarily unavailable.";
+				extensions: {
+					key: "x-number";
+					value {
+						number_value: 100;
+					}
+				}
+			}
+		}
+		responses: {
+			// Overwrites global definition.
+			key: "404";
+			value: {
+				description: "Returned when the resource does not exist.";
+				schema: {
+					json_schema: {
+						type: INTEGER;
+					}
+				}
+			}
+		}
+	};
   }
 }

@@ -16,7 +16,6 @@ _sym_db = _symbol_database.Default()
 
 import generic_pb2 as generic__pb2
 import light_sensor_pb2 as light__sensor__pb2
-from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 from protoc_gen_swagger.options import annotations_pb2 as protoc__gen__swagger_dot_options_dot_annotations__pb2
 
 
@@ -25,9 +24,9 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='lgbsttracker',
   syntax='proto2',
   serialized_options=_b('\220\001\001\222A\316\001\022h\n\022Lego Boost Tracker\"N\n\022Lego Boost Tracker\022&https://github.com/py4mac/lgbsttracker\032\020boisbu@gmail.com2\002v1*\001\0012\020application/json:\020application/jsonR;\n\003404\0224\n*Returned when the resource does not exist.\022\006\n\004\232\002\001\007'),
-  serialized_pb=_b('\n\x11sensors_api.proto\x12\x0clgbsttracker\x1a\rgeneric.proto\x1a\x12light_sensor.proto\x1a\x1cgoogle/api/annotations.proto\x1a,protoc-gen-swagger/options/annotations.proto2\xab\x04\n\nSensorsApi\x12\xbf\x01\n\x12getLightSensorById\x12\x1a.common.GetLightSensorById\x1a#.common.GetLightSensorById.Response\"h\x82\xd3\xe4\x93\x02\x1c\x12\x1a/sensors/lightsensors/{id}\xf2\x86\x19\x42\n\'\n\x03GET\x12\x1a/sensors/lightsensors/<id>\x1a\x04\x08\x02\x10\x00\x10\x01*\x15Get LightSensor by Id\x12\xa7\x01\n\x0fgetLightSensors\x12\x17.common.GetLightSensors\x1a .common.GetLightSensors.Response\"Y\x82\xd3\xe4\x93\x02\x17\x12\x15/sensors/lightsensors\xf2\x86\x19\x38\n\"\n\x03GET\x12\x15/sensors/lightsensors\x1a\x04\x08\x02\x10\x00\x10\x01*\x10Get LightSensors\x12\xb0\x01\n\x11\x63reateLightSensor\x12\x19.common.CreateLightSensor\x1a\".common.CreateLightSensor.Response\"\\\x82\xd3\xe4\x93\x02\x17\"\x15/sensors/lightsensors\xf2\x86\x19;\n#\n\x04POST\x12\x15/sensors/lightsensors\x1a\x04\x08\x02\x10\x00\x10\x01*\x12\x43reate LightSensorB\xd5\x01\x90\x01\x01\x92\x41\xce\x01\x12h\n\x12Lego Boost Tracker\"N\n\x12Lego Boost Tracker\x12&https://github.com/py4mac/lgbsttracker\x1a\x10\x62oisbu@gmail.com2\x02v1*\x01\x01\x32\x10\x61pplication/json:\x10\x61pplication/jsonR;\n\x03\x34\x30\x34\x12\x34\n*Returned when the resource does not exist.\x12\x06\n\x04\x9a\x02\x01\x07')
+  serialized_pb=_b('\n\x11sensors_api.proto\x12\x0clgbsttracker\x1a\rgeneric.proto\x1a\x12light_sensor.proto\x1a,protoc-gen-swagger/options/annotations.proto2\xce\x07\n\nSensorsApi\x12\xce\x02\n\x12getLightSensorById\x12\x1a.common.GetLightSensorById\x1a#.common.GetLightSensorById.Response\"\xf6\x01\x82\xd3\xe4\x93\x02\x1c\x12\x1a/sensors/lightsensors/{id}\x92\x41\xd0\x01\x12\x16Get Light Sensor By Id\x1a!Return Light Sensor by IdentifierJV\n\x03\x35\x30\x33\x12O\n6Returned when the resource is temporarily unavailable.*\x15\n\x08x-number\x12\t\x11\x00\x00\x00\x00\x00\x00Y@J;\n\x03\x34\x30\x34\x12\x34\n*Returned when the resource does not exist.\x12\x06\n\x04\x9a\x02\x01\x03\x12\xb6\x02\n\x0fgetLightSensors\x12\x17.common.GetLightSensors\x1a .common.GetLightSensors.Response\"\xe7\x01\x82\xd3\xe4\x93\x02\x17\x12\x15/sensors/lightsensors\x92\x41\xc6\x01\x12\x15Get All Light Sensors\x1a\x18Return All Light SensorsJV\n\x03\x35\x30\x33\x12O\n6Returned when the resource is temporarily unavailable.*\x15\n\x08x-number\x12\t\x11\x00\x00\x00\x00\x00\x00Y@J;\n\x03\x34\x30\x34\x12\x34\n*Returned when the resource does not exist.\x12\x06\n\x04\x9a\x02\x01\x03\x12\xb5\x02\n\x11\x63reateLightSensor\x12\x19.common.CreateLightSensor\x1a\".common.CreateLightSensor.Response\"\xe0\x01\x82\xd3\xe4\x93\x02\x17\"\x15/sensors/lightsensors\x92\x41\xbf\x01\x12\x13\x43reate Light Sensor\x1a\x13\x43reate Light SensorJV\n\x03\x35\x30\x33\x12O\n6Returned when the resource is temporarily unavailable.*\x15\n\x08x-number\x12\t\x11\x00\x00\x00\x00\x00\x00Y@J;\n\x03\x34\x30\x34\x12\x34\n*Returned when the resource does not exist.\x12\x06\n\x04\x9a\x02\x01\x03\x42\xd5\x01\x90\x01\x01\x92\x41\xce\x01\x12h\n\x12Lego Boost Tracker\"N\n\x12Lego Boost Tracker\x12&https://github.com/py4mac/lgbsttracker\x1a\x10\x62oisbu@gmail.com2\x02v1*\x01\x01\x32\x10\x61pplication/json:\x10\x61pplication/jsonR;\n\x03\x34\x30\x34\x12\x34\n*Returned when the resource does not exist.\x12\x06\n\x04\x9a\x02\x01\x07')
   ,
-  dependencies=[generic__pb2.DESCRIPTOR,light__sensor__pb2.DESCRIPTOR,google_dot_api_dot_annotations__pb2.DESCRIPTOR,protoc__gen__swagger_dot_options_dot_annotations__pb2.DESCRIPTOR,])
+  dependencies=[generic__pb2.DESCRIPTOR,light__sensor__pb2.DESCRIPTOR,protoc__gen__swagger_dot_options_dot_annotations__pb2.DESCRIPTOR,])
 
 
 
@@ -42,8 +41,8 @@ _SENSORSAPI = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=147,
-  serialized_end=702,
+  serialized_start=117,
+  serialized_end=1091,
   methods=[
   _descriptor.MethodDescriptor(
     name='getLightSensorById',
@@ -52,7 +51,7 @@ _SENSORSAPI = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=light__sensor__pb2._GETLIGHTSENSORBYID,
     output_type=light__sensor__pb2._GETLIGHTSENSORBYID_RESPONSE,
-    serialized_options=_b('\202\323\344\223\002\034\022\032/sensors/lightsensors/{id}\362\206\031B\n\'\n\003GET\022\032/sensors/lightsensors/<id>\032\004\010\002\020\000\020\001*\025Get LightSensor by Id'),
+    serialized_options=_b('\202\323\344\223\002\034\022\032/sensors/lightsensors/{id}\222A\320\001\022\026Get Light Sensor By Id\032!Return Light Sensor by IdentifierJV\n\003503\022O\n6Returned when the resource is temporarily unavailable.*\025\n\010x-number\022\t\021\000\000\000\000\000\000Y@J;\n\003404\0224\n*Returned when the resource does not exist.\022\006\n\004\232\002\001\003'),
   ),
   _descriptor.MethodDescriptor(
     name='getLightSensors',
@@ -61,7 +60,7 @@ _SENSORSAPI = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=light__sensor__pb2._GETLIGHTSENSORS,
     output_type=light__sensor__pb2._GETLIGHTSENSORS_RESPONSE,
-    serialized_options=_b('\202\323\344\223\002\027\022\025/sensors/lightsensors\362\206\0318\n\"\n\003GET\022\025/sensors/lightsensors\032\004\010\002\020\000\020\001*\020Get LightSensors'),
+    serialized_options=_b('\202\323\344\223\002\027\022\025/sensors/lightsensors\222A\306\001\022\025Get All Light Sensors\032\030Return All Light SensorsJV\n\003503\022O\n6Returned when the resource is temporarily unavailable.*\025\n\010x-number\022\t\021\000\000\000\000\000\000Y@J;\n\003404\0224\n*Returned when the resource does not exist.\022\006\n\004\232\002\001\003'),
   ),
   _descriptor.MethodDescriptor(
     name='createLightSensor',
@@ -70,7 +69,7 @@ _SENSORSAPI = _descriptor.ServiceDescriptor(
     containing_service=None,
     input_type=light__sensor__pb2._CREATELIGHTSENSOR,
     output_type=light__sensor__pb2._CREATELIGHTSENSOR_RESPONSE,
-    serialized_options=_b('\202\323\344\223\002\027\"\025/sensors/lightsensors\362\206\031;\n#\n\004POST\022\025/sensors/lightsensors\032\004\010\002\020\000\020\001*\022Create LightSensor'),
+    serialized_options=_b('\202\323\344\223\002\027\"\025/sensors/lightsensors\222A\277\001\022\023Create Light Sensor\032\023Create Light SensorJV\n\003503\022O\n6Returned when the resource is temporarily unavailable.*\025\n\010x-number\022\t\021\000\000\000\000\000\000Y@J;\n\003404\0224\n*Returned when the resource does not exist.\022\006\n\004\232\002\001\003'),
   ),
 ])
 _sym_db.RegisterServiceDescriptor(_SENSORSAPI)
