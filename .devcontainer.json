@@ -1,0 +1,16 @@
+{
+    "dockerFile": "Dockerfile.dev",
+    "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash",
+        "python.pythonPath": "/usr/local/bin/python",
+        "python.linting.enabled": true,
+        "python.linting.pylintEnabled": true,
+        "python.linting.pylintPath": "/usr/local/bin/pylint"
+    },
+    "extensions": [
+        "ms-vcode.python"
+    ],
+    "appPort": [
+        "8000:8000"
+    ]
+}

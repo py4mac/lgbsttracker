@@ -42,9 +42,10 @@ class LgbsttrackerException(Exception):
                         exception's serialized JSON representation.
         :param error_code: An appropriate error code for the error that occured; it will be included
                            in the exception's serialized JSON representation. This should be one of
-                           the codes listed in the `mlflow.protos.databricks_pb2` proto.
+                           the codes listed in the `lgbsttracker.protos.generic_pb2` proto.
         :param kwargs: Additional key-value pairs to include in the serialized JSON representation
-                       of the MlflowException.
+                       of the class LgbsttrackerException
+.
         """
         try:
             self.error_code = ErrorCode.Name(error_code)

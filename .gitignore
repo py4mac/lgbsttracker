@@ -1,4 +1,8 @@
 __pycache__
-.vscode
+.pytest_cache
 .mypy_cache
 site
+*.egg-info
+.tox
+coverage.xml
+.coverage

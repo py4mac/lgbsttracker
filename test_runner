@@ -1,0 +1,15 @@
+#!/bin/bash
+
+install_deps() {
+  pip install -e .[tests]
+}
+
+run_tests() {
+  cd tests && PYTHONPATH=`pwd`/../ pytest
+}
+
+run_coverage() {
+  pytest --cov=./ && codecov
+}
+
+install_deps && run_tests && run_coverage
