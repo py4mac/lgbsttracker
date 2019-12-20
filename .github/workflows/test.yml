@@ -25,5 +25,5 @@ jobs:
         python3 -m pip install tox codecov
     - name: Test with tox
       run: |
-        export CODEV_TOKEN=${{ secrets.CODECOV_TOKEN }}
+        export CODECOV_TOKEN=${{ secrets.CODECOV_TOKEN }}
         tox
