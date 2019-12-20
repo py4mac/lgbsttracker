@@ -24,6 +24,6 @@ jobs:
         python3 -m pip install --upgrade pip
         python3 -m pip install tox codecov
     - name: Test with tox
-      run: tox -v
-    - name: Publish code coverage
-      run: codecov --token ${{ secrets.CODECOV_TOKEN }}
+      run: |
+        export CODEV_TOKEN=${{ secrets.CODECOV_TOKEN }}
+        tox
