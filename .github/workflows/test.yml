@@ -25,3 +25,5 @@ jobs:
         python3 -m pip install tox
     - name: Test with tox
       run: tox -v
+    - name: Publish code coverage
+      run: codecov
