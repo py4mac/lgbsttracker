@@ -22,7 +22,7 @@ jobs:
     - name: Install Python 3.x dependencies
       run: |
         python3 -m pip install --upgrade pip
-        python3 -m pip install tox
+        python3 -m pip install tox codecov
     - name: Test with tox
       run: tox -v
     - name: Publish code coverage
