@@ -26,4 +26,4 @@ jobs:
     - name: Test with tox
       run: tox -v
     - name: Publish code coverage
-      run: codecov --token {{ secret.CODECOV_TOKEN }}
+      run: codecov --token ${{ secrets.CODECOV_TOKEN }}
