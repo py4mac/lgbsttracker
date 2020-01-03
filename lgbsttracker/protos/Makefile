@@ -1,21 +1,22 @@
 rest-server:
 	protoc -I. -I/usr/local/go/src/github.com/grpc-ecosystem/grpc-gateway \
 		--python_out=. \
-		light_sensor.proto \
-		generic.proto \
-		sensors_api.proto
+		common.proto \
+		lightsensor_message.proto \
+		api_storage_sensors_service.proto
 
 swagger-doc:
 	protoc -I. -I/usr/local/go/src/github.com/grpc-ecosystem/grpc-gateway \
-		--swagger_out=logtostderr=true:../server/doc \
-		sensors_api.proto
-	mv ../server/doc/sensors_api.swagger.json ../server/doc/swagger.json
+		--swagger_out=logtostderr=true,allow_merge=true:../server/doc \
+		api_storage_sensors_service.proto \
+		api_service.proto
+	mv ../server/doc/apidocs.swagger.json ../server/doc/swagger.json
 
-grpc-server:
-	python -m grpc_tools.protoc \
-		--python_out=. --grpc_python_out=. \
-		-I. -I/usr/local/include \
-		sensors_service.proto
+# grpc-server:
+# 	python -m grpc_tools.protoc \
+# 		--python_out=. --grpc_python_out=. \
+# 		-I. -I/usr/local/include \
+# 		sensors_service.proto
 
 deps:
 	go get -u github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway

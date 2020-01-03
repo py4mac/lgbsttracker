@@ -1,6 +1,6 @@
 import json
 
-from lgbsttracker.protos.generic_pb2 import (
+from lgbsttracker.protos.common_pb2 import (
     INTERNAL_ERROR,
     TEMPORARILY_UNAVAILABLE,
     ENDPOINT_NOT_FOUND,

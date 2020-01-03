@@ -28,7 +28,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/commonGetLightSensorsResponse"
+              "$ref": "#/definitions/v1GetLightSensorsResponse"
             }
           },
           "404": {
@@ -45,7 +45,7 @@
           }
         },
         "tags": [
-          "SensorsApi"
+          "StorageSensorsApi"
         ]
       },
       "post": {
@@ -56,7 +56,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/commonCreateLightSensorResponse"
+              "$ref": "#/definitions/v1CreateLightSensorResponse"
             }
           },
           "404": {
@@ -73,7 +73,7 @@
           }
         },
         "tags": [
-          "SensorsApi"
+          "StorageSensorsApi"
         ]
       }
     },
@@ -86,7 +86,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/commonGetLightSensorByIdResponse"
+              "$ref": "#/definitions/v1GetLightSensorByIdResponse"
             }
           },
           "404": {
@@ -111,40 +111,13 @@
           }
         ],
         "tags": [
-          "SensorsApi"
+          "StorageSensorsApi"
         ]
       }
     }
   },
   "definitions": {
-    "commonCreateLightSensorResponse": {
-      "type": "object",
-      "properties": {
-        "light_sensor": {
-          "$ref": "#/definitions/commonLightSensor"
-        }
-      }
-    },
-    "commonGetLightSensorByIdResponse": {
-      "type": "object",
-      "properties": {
-        "light_sensor": {
-          "$ref": "#/definitions/commonLightSensor"
-        }
-      }
-    },
-    "commonGetLightSensorsResponse": {
-      "type": "object",
-      "properties": {
-        "light_sensors": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/commonLightSensor"
-          }
-        }
-      }
-    },
-    "commonLightSensor": {
+    "lightsensorLightSensor": {
       "type": "object",
       "properties": {
         "id": {
@@ -164,6 +137,33 @@
         "last_update_time": {
           "type": "string",
           "format": "int64"
+        }
+      }
+    },
+    "v1CreateLightSensorResponse": {
+      "type": "object",
+      "properties": {
+        "item": {
+          "$ref": "#/definitions/lightsensorLightSensor"
+        }
+      }
+    },
+    "v1GetLightSensorByIdResponse": {
+      "type": "object",
+      "properties": {
+        "item": {
+          "$ref": "#/definitions/lightsensorLightSensor"
+        }
+      }
+    },
+    "v1GetLightSensorsResponse": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/lightsensorLightSensor"
+          }
         }
       }
     }

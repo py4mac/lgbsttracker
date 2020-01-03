@@ -11,9 +11,9 @@ from sanic.request import Request
 
 from lgbsttracker.exceptions import LgbsttrackerException
 from lgbsttracker.utils.proto_json_utils import parse_dict, message_to_json
-from lgbsttracker.protos.sensors_api_pb2 import SensorsApi
-from lgbsttracker.protos.light_sensor_pb2 import GetLightSensorById, GetLightSensors, CreateLightSensor, LightSensor
-from lgbsttracker.protos import generic_pb2
+from lgbsttracker.protos.api_storage_sensors_service_pb2 import StorageSensorsApi, GetLightSensorById, GetLightSensors, CreateLightSensor
+from lgbsttracker.protos.lightsensor_message_pb2 import LightSensor
+from google.api.annotations_pb2 import http
 
 
 def _not_implemented():
@@ -59,14 +59,14 @@ def get_endpoints():
     def get_service_endpoints(service):
         ret = []
         for service_method in service.DESCRIPTOR.methods:
-            http_rule = service_method.GetOptions().Extensions[generic_pb2.http]
+            http_rule = service_method.GetOptions().Extensions[http]
             method, http_path = _search_endpoints(http_rule)
             handler = get_handler(service().GetRequestClass(service_method))
             if (len(method) == 1) and (http_path != ""):
                 ret.append((http_path, handler, method))
         return ret
 
-    return get_service_endpoints(SensorsApi)
+    return get_service_endpoints(StorageSensorsApi)
 
 
 def _get_request_message(request_message, aiohttp_request):
@@ -105,8 +105,8 @@ def _get_light_sensor_by_id(request: Request, id):
     request_message = _get_route_info(GetLightSensorById(), request)
     # Eg: You can access to request_message field id for ex
     response_message = GetLightSensorById.Response()
-    response_message.light_sensor.id = "1"
-    response_message.light_sensor.name = "my_sensor_light1"
+    response_message.item.id = "1"
+    response_message.item.name = "my_sensor_light1"
     return response.text(message_to_json(response_message))
 
 
@@ -119,7 +119,7 @@ def _get_light_sensors(request: Request):
     request_message = _get_route_info(GetLightSensors(), request)
     # Eg: You can access to request_message field id for ex
     response_message = GetLightSensors.Response()
-    response_message.light_sensors.extend([LightSensor(id="1", name="my_sensor_light1"), LightSensor(id="2", name="my_sensor_light2")])
+    response_message.items.extend([LightSensor(id="1", name="my_sensor_light1"), LightSensor(id="2", name="my_sensor_light2")])
     return response.text(message_to_json(response_message))
 
 
@@ -128,8 +128,8 @@ def _create_light_sensor(request: Request):
     request_message = _get_request_message(CreateLightSensor(), request)
     # Eg: Store here the item inside your DB ...
     response_message = CreateLightSensor.Response()
-    response_message.light_sensor.id = "1"
-    response_message.light_sensor.name = request_message.item.msg
+    response_message.item.id = "1"
+    response_message.item.name = request_message.item.msg
     return response.json(message_to_json(response_message))
 
 
