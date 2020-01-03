@@ -1,0 +1,33 @@
+syntax = "proto2";
+
+package api.v1;
+
+import "protoc-gen-swagger/options/annotations.proto";
+
+option py_generic_services = true;
+
+option (grpc.gateway.protoc_gen_swagger.options.openapiv2_swagger) = {
+	info: {
+		title: "Lego Boost Tracker";
+		version: "v1";
+		contact: {
+			name: "Lego Boost Tracker";
+			url: "https://github.com/py4mac/lgbsttracker";
+			email: "boisbu@gmail.com";
+        };
+    };
+    schemes: HTTP;
+    consumes: "application/json";
+    produces: "application/json";
+    responses: {
+		key: "404";
+		value: {
+			description: "Returned when the resource does not exist.";
+			schema: {
+				json_schema: {
+					type: STRING;
+				}
+			}
+		}
+	}
+};

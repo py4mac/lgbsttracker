@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package grpc.v1;
+
+import "lightsensor_message.proto";
+
+service StorageSensorsService {
+
+  rpc getLightSensorById (lightsensor.GetLightSensorById) returns (lightsensor.GetLightSensorById.Response);
+
+  rpc getLightSensors (lightsensor.GetLightSensors) returns (lightsensor.GetLightSensors.Response);
+
+  rpc createLightSensor (lightsensor.CreateLightSensor) returns (lightsensor.CreateLightSensor.Response);
+
+}
