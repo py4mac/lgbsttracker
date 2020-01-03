@@ -6,10 +6,20 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v1
-
-    - name: Build and Deploy
-      uses: JamesIves/github-pages-deploy-action@releases/v3
+    - name: Set up Python 3.x
+      uses: actions/setup-python@v1
       with:
-        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-        BRANCH: gh-pages # The branch the action should deploy to.
-        FOLDER: lgbsttracker # The folder the action should deploy.
+        python-version: '3.x'
+    - name: Install Python 3.x dependencies
+      run: |
+        python3 -m pip install --upgrade pip
+        python3 -m pip install mkdocs mkdocs-material markdown-include
+    - name: Build Mkdocs
+      run: |
+        python3 -m mkdocs build
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v2
+      env:
+        ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+        PUBLISH_BRANCH: gh-pages
+        PUBLISH_DIR: ./site
