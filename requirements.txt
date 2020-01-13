@@ -1,4 +1,5 @@
 click
+entrypoints
 querystring_parser
 grpcio
 grpcio-tools
