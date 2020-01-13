@@ -48,6 +48,37 @@ RUN apt-get update \
     && apt-get clean -y \
     && rm -rf /var/lib/apt/lists/*
 
+# Install golang-go
+
+## Install packages
+RUN mkdir /tmp/go-tmp
+RUN wget https://dl.google.com/go/go1.11.5.linux-amd64.tar.gz -O /tmp/go-tmp/go1.11.5.linux-amd64.tar.gz
+RUN tar -xvf /tmp/go-tmp/go1.11.5.linux-amd64.tar.gz -C /tmp/go-tmp/
+RUN mv /tmp/go-tmp/go /usr/local
+
+## Set path
+ENV GOROOT=/usr/local/go
+ENV GOPATH=${HOME}/go
+ENV PATH=${GOPATH}/bin:${GOROOT}/bin:${PATH}
+
+RUN apt-get install -y unzip
+
+## Install protobuf
+RUN wget https://github.com/google/protobuf/releases/download/v3.6.0/protoc-3.6.0-linux-x86_64.zip -O /tmp/go-tmp/protoc-3.6.0-linux-x86_64.zip
+RUN unzip /tmp/go-tmp/protoc-3.6.0-linux-x86_64.zip -d /tmp/go-tmp/protoc3
+
+## Install required protobuf package
+RUN mv /tmp/go-tmp/protoc3/bin/* /usr/local/bin/
+RUN mv /tmp/go-tmp/protoc3/include/* /usr/local/include/
+RUN rm -rf /tmp/go-tmp
+
+RUN mkdir /usr/local/include/google/api
+RUN wget https://raw.githubusercontent.com/googleapis/googleapis/master/google/api/annotations.proto -O /usr/local/include/google/api/annotations.proto
+RUN wget https://raw.githubusercontent.com/googleapis/googleapis/master/google/api/http.proto -O /usr/local/include/google/api/http.proto
+
+## Install gprc
+RUN go get -u google.golang.org/grpc
+
 # Switch back to dialog for any ad-hoc use of apt-get
 ENV DEBIAN_FRONTEND=dialog
 

@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package common;
+package lgbsttracker.common;
 
 enum ErrorCode {
     INTERNAL_ERROR = 0;

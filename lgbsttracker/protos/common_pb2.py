@@ -17,15 +17,15 @@ _sym_db = _symbol_database.Default()
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='common.proto',
-  package='common',
+  package='lgbsttracker.common',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x0c\x63ommon.proto\x12\x06\x63ommon*\x82\x02\n\tErrorCode\x12\x12\n\x0eINTERNAL_ERROR\x10\x00\x12\x1b\n\x17TEMPORARILY_UNAVAILABLE\x10\x01\x12\x16\n\x12\x45NDPOINT_NOT_FOUND\x10\x02\x12\x15\n\x11PERMISSION_DENIED\x10\x03\x12\x1a\n\x16REQUEST_LIMIT_EXCEEDED\x10\x04\x12\x0f\n\x0b\x42\x41\x44_REQUEST\x10\x05\x12\x1b\n\x17INVALID_PARAMETER_VALUE\x10\x06\x12\x1b\n\x17RESOURCE_DOES_NOT_EXIST\x10\x07\x12\x11\n\rINVALID_STATE\x10\x08\x12\x1b\n\x17RESOURCE_ALREADY_EXISTS\x10\tb\x06proto3')
+  serialized_pb=_b('\n\x0c\x63ommon.proto\x12\x13lgbsttracker.common*\x82\x02\n\tErrorCode\x12\x12\n\x0eINTERNAL_ERROR\x10\x00\x12\x1b\n\x17TEMPORARILY_UNAVAILABLE\x10\x01\x12\x16\n\x12\x45NDPOINT_NOT_FOUND\x10\x02\x12\x15\n\x11PERMISSION_DENIED\x10\x03\x12\x1a\n\x16REQUEST_LIMIT_EXCEEDED\x10\x04\x12\x0f\n\x0b\x42\x41\x44_REQUEST\x10\x05\x12\x1b\n\x17INVALID_PARAMETER_VALUE\x10\x06\x12\x1b\n\x17RESOURCE_DOES_NOT_EXIST\x10\x07\x12\x11\n\rINVALID_STATE\x10\x08\x12\x1b\n\x17RESOURCE_ALREADY_EXISTS\x10\tb\x06proto3')
 )
 
 _ERRORCODE = _descriptor.EnumDescriptor(
   name='ErrorCode',
-  full_name='common.ErrorCode',
+  full_name='lgbsttracker.common.ErrorCode',
   filename=None,
   file=DESCRIPTOR,
   values=[
@@ -72,8 +72,8 @@ _ERRORCODE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=25,
-  serialized_end=283,
+  serialized_start=38,
+  serialized_end=296,
 )
 _sym_db.RegisterEnumDescriptor(_ERRORCODE)
 

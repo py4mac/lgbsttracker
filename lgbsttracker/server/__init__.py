@@ -1,22 +1,36 @@
-from sanic import Sanic
-from sanic.response import file
-from lgbsttracker.server.handlers import get_endpoints
-
-app = Sanic(__name__)
-
-for http_path, handler, methods in get_endpoints():
-    app.add_route(uri=http_path, handler=handler, methods=methods)
+from aiohttp import web
 
 
-@app.route("/swagger.json")
-def home(response):
-    return file("./lgbsttracker/server/doc/swagger.json")
+def _get_api_storage_sensors_server():
+    from lgbsttracker.server.endpoints.storage_sensors import init, get_endpoints
+
+    init()
+
+    app = web.Application()
+    # Register route
+    for http_path, handler, method in get_endpoints():
+        app.router.add_route(method, http_path, handler)
+    return app
 
 
-@app.route("/")
-def home(response):
-    return file("./lgbsttracker/server/doc/index.html")
+def _get_api_doc_server():
+    app = web.Application()
+
+    def index(request):
+        return web.FileResponse("./lgbsttracker/server/doc/index.html")
+
+    def swagger_serve(request):
+        return web.FileResponse("./lgbsttracker/server/doc/swagger.json")
+
+    # def logo_serve(request):
+    #     return web.FileResponse("./lgbsttracker/server/doc/logo.png")
+
+    # Specific route
+    app.router.add_route("*", "/", index)
+    app.router.add_route("*", "/swagger.json", swagger_serve)
+    # app.router.add_route("*", "/logo.png", logo_serve)
+    return app
 
 
-def _run_server():
-    app.run(host="0.0.0.0", port=8000)
+def _run_server(app):
+    web.run_app(app, host="0.0.0.0", port=8000)

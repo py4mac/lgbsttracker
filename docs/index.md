@@ -15,7 +15,7 @@
 
 **Documentation**: <a href="https://py4mac.github.io/lgbsttracker" target="_blank">https://py4mac.github.io/lgbsttracker</a>
 
-**Source Code**: <a href="https://github.com/py4mac/lgbsstracker" target="_blank">https://github.com/py4mac/lgbsstracker</a>
+**Source Code**: <a href="https://github.com/py4mac/lgbsttracker" target="_blank">https://github.com/py4mac/lgbsttracker</a>
 
 ---
 

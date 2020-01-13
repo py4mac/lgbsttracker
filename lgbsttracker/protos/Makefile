@@ -1,8 +1,8 @@
-rest-server:
+rest-code:
 	protoc -I. -I/usr/local/go/src/github.com/grpc-ecosystem/grpc-gateway \
 		--python_out=. \
 		common.proto \
-		lightsensor_message.proto \
+		sensors_message.proto \
 		api_storage_sensors_service.proto
 
 swagger-doc:
@@ -12,7 +12,7 @@ swagger-doc:
 		api_service.proto
 	mv ../server/doc/apidocs.swagger.json ../server/doc/swagger.json
 
-# grpc-server:
+# grpc-code:
 # 	python -m grpc_tools.protoc \
 # 		--python_out=. --grpc_python_out=. \
 # 		-I. -I/usr/local/include \

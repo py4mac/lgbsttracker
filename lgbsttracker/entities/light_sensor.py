@@ -1,5 +1,6 @@
+from lgbsttracker.utils.proto_utils import timestamp_to_datetime, datetime_to_seconds
 from lgbsttracker.entities._lgbsttracker_object import _LGBSTTrackerObject
-from lgbsttracker.protos.service_pb2 import LightSensor as ProtoLightSensor
+from lgbsttracker.protos.sensors_message_pb2 import LightSensor as ProtoLightSensor
 
 
 class LightSensor(_LGBSTTrackerObject):
@@ -7,12 +8,12 @@ class LightSensor(_LGBSTTrackerObject):
     LightSensor object.
     """
 
-    def __init__(self, light_sensor_id, name, value, creation_time, last_update_time):
+    def __init__(self, light_sensor_id, name, value, creation_time, last_updated_time):
         self._light_sensor_id = light_sensor_id
         self._name = name
         self._value = value
         self._creation_time = creation_time
-        self._last_update_time = last_update_time
+        self._last_updated_time = last_updated_time
 
     @property
     def light_sensor_id(self):
@@ -30,9 +31,9 @@ class LightSensor(_LGBSTTrackerObject):
         return self._value
 
     @property
-    def last_update_time(self):
+    def last_updated_time(self):
         """Light sensor timestamp as an integer (milliseconds since the Unix epoch)."""
-        return self._last_update_time
+        return self._last_updated_time
 
     @property
     def creation_time(self):
@@ -41,13 +42,16 @@ class LightSensor(_LGBSTTrackerObject):
 
     def to_proto(self):
         light_sensor = ProtoLightSensor()
-        light_sensor.light_sensor_id = self.light_sensor_id
         light_sensor.name = self.name
-        light_sensor.value = self.value
-        light_sensor.last_update_time = self.last_update_time
-        light_sensor.creation_time = self.creation_time
+        if self.value:
+            light_sensor.value = self.value
+        if self.last_updated_time:
+            light_sensor.last_updated_time.seconds = datetime_to_seconds(self.last_updated_time)
+        light_sensor.creation_time.seconds = datetime_to_seconds(self.creation_time)
         return light_sensor
 
     @classmethod
     def from_proto(cls, proto):
-        return cls(proto.key, proto.value, proto.timestamp)
+        return cls(
+            proto.light_sensor_id, proto.name, proto.value, timestamp_to_datetime(proto.creation_time), timestamp_to_datetime(proto.last_updated_time)
+        )

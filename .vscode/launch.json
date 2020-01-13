@@ -5,14 +5,30 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Python (Integrated Terminal)",
+            "name": "serve-api-storage-sensors",
             "type": "python",
             "request": "launch",
             "program": "${workspaceFolder}/lgbsttracker/cli.py",
             "console": "integratedTerminal",
             "env": {
-                "PYTHONPATH": "${workspaceFolder}"
-            }
+                "PYTHONPATH": "${workspaceFolder}",
+            },
+            "args": [
+                "serve-api-storage-sensors"
+            ]
+        },
+        {
+            "name": "serve-api-doc",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/lgbsttracker/cli.py",
+            "console": "integratedTerminal",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}",
+            },
+            "args": [
+                "serve-api-doc"
+            ]
         }
     ]
 }

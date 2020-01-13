@@ -11,13 +11,15 @@
         "-p",
         "test_*.py"
     ],
-    "python.testing.pytestEnabled": false,
+    "python.testing.pytestEnabled": true,
     "python.testing.nosetestsEnabled": false,
-    "python.testing.unittestEnabled": true,
+    "python.testing.unittestEnabled": false,
     "python.formatting.provider": "black",
     "python.formatting.blackArgs": [
         "--line-length=150"
     ],
     "editor.formatOnSave": true,
-    "remote.WSL.fileWatcher.polling": true
+    "remote.WSL.fileWatcher.polling": true,
+    "workbench.editor.enablePreview": false,
+    "python.envFile": "${workspaceFolder}/.env"
 }

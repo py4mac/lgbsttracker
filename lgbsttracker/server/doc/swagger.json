@@ -19,35 +19,7 @@
     "application/json"
   ],
   "paths": {
-    "/sensors/lightsensors": {
-      "get": {
-        "summary": "Get All Light Sensors",
-        "description": "Return All Light Sensors",
-        "operationId": "getLightSensors",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/v1GetLightSensorsResponse"
-            }
-          },
-          "404": {
-            "description": "Returned when the resource does not exist.",
-            "schema": {
-              "type": "integer",
-              "format": "integer"
-            }
-          },
-          "503": {
-            "description": "Returned when the resource is temporarily unavailable.",
-            "schema": {},
-            "x-number": 100
-          }
-        },
-        "tags": [
-          "StorageSensorsApi"
-        ]
-      },
+    "/storage/v1.0/sensors/lightsensors": {
       "post": {
         "summary": "Create Light Sensor",
         "description": "Create Light Sensor",
@@ -62,52 +34,19 @@
           "404": {
             "description": "Returned when the resource does not exist.",
             "schema": {
-              "type": "integer",
-              "format": "integer"
+              "type": "string",
+              "format": "string"
             }
-          },
-          "503": {
-            "description": "Returned when the resource is temporarily unavailable.",
-            "schema": {},
-            "x-number": 100
-          }
-        },
-        "tags": [
-          "StorageSensorsApi"
-        ]
-      }
-    },
-    "/sensors/lightsensors/{id}": {
-      "get": {
-        "summary": "Get Light Sensor By Id",
-        "description": "Return Light Sensor by Identifier",
-        "operationId": "getLightSensorById",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/v1GetLightSensorByIdResponse"
-            }
-          },
-          "404": {
-            "description": "Returned when the resource does not exist.",
-            "schema": {
-              "type": "integer",
-              "format": "integer"
-            }
-          },
-          "503": {
-            "description": "Returned when the resource is temporarily unavailable.",
-            "schema": {},
-            "x-number": 100
           }
         },
         "parameters": [
           {
-            "name": "id",
-            "in": "path",
+            "name": "body",
+            "in": "body",
             "required": true,
-            "type": "string"
+            "schema": {
+              "$ref": "#/definitions/v1CreateLightSensor"
+            }
           }
         ],
         "tags": [
@@ -117,26 +56,31 @@
     }
   },
   "definitions": {
-    "lightsensorLightSensor": {
+    "sensorsLightSensor": {
       "type": "object",
       "properties": {
-        "id": {
-          "type": "string"
-        },
         "name": {
           "type": "string"
         },
         "value": {
           "type": "number",
-          "format": "double"
+          "format": "float"
         },
         "creation_time": {
           "type": "string",
-          "format": "int64"
+          "format": "date-time"
         },
-        "last_update_time": {
+        "last_updated_time": {
           "type": "string",
-          "format": "int64"
+          "format": "date-time"
+        }
+      }
+    },
+    "v1CreateLightSensor": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
         }
       }
     },
@@ -144,26 +88,7 @@
       "type": "object",
       "properties": {
         "item": {
-          "$ref": "#/definitions/lightsensorLightSensor"
-        }
-      }
-    },
-    "v1GetLightSensorByIdResponse": {
-      "type": "object",
-      "properties": {
-        "item": {
-          "$ref": "#/definitions/lightsensorLightSensor"
-        }
-      }
-    },
-    "v1GetLightSensorsResponse": {
-      "type": "object",
-      "properties": {
-        "items": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/lightsensorLightSensor"
-          }
+          "$ref": "#/definitions/sensorsLightSensor"
         }
       }
     }
