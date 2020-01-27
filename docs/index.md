@@ -1,7 +1,8 @@
 <H1>LEGO® Boost Tracker</H1>
 <p align="center">
-<a href="https://travis-ci.org/py4mac/lgbsttracker" target="_blank">
-    <img src="https://travis-ci.org/py4mac/lgbsttracker.svg?branch=master" alt="Build Status">
+<img src="https://img.shields.io/github/last-commit/py4mac/lgbsttracker.svg">
+<a href="https://github.com/py4mac/" target="_blank">
+    <img src="https://github.com/py4mac/lgbsttracker/workflows/Test/badge.svg" alt="Test">
 </a>
 <a href="https://codecov.io/gh/py4mac/lgbsttracker" target="_blank">
     <img src="https://codecov.io/gh/py4mac/lgbsttracker/branch/master/graph/badge.svg" alt="Coverage">
