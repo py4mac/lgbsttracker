@@ -1,11 +1,9 @@
-name: Test
+name: Publish
 on:
   push:
-    branches:
-    - master
-  pull_request:
-    branches:
-    - master
+    tags:
+    - *.*
+
 jobs:
   test:
     name: Test on ${{ matrix.os }}
@@ -23,8 +21,9 @@ jobs:
       run: |
         python3 -m pip install --upgrade pip
         python3 -m pip install -r requirements.txt
-    - name: Test with tox
+    - name: Build
       run: |
-        export CODECOV_TOKEN=${{ secrets.CODECOV_TOKEN }}
-        make test
-        codecov
+        python3 -m poetry build
+    - name: Publish
+      run: |
+        python3 -m poetry publish -u ${{ secrets.PYPI_USER }} -p ${{ secrets.PYPI_PWD }}

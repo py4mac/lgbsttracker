@@ -1,9 +1,7 @@
 from __future__ import print_function
 
-import sys
 import logging
 import logging.config
-
 
 # Logging format example:
 # 2018/11/20 12:36:37 INFO lgbsttracker.event.kafka: Creating Kafka Event
@@ -16,9 +14,15 @@ def _configure_lgbsttracker_loggers(root_module_name, debug_level="INFO", app_na
         {
             "version": 1,
             "disable_existing_loggers": False,
-            "formatters": {"lgbsttracker_formatter": {"format": LOGGING_LINE_FORMAT, "datefmt": LOGGING_DATETIME_FORMAT}},
+            "formatters": {
+                "lgbsttracker_formatter": {"format": LOGGING_LINE_FORMAT, "datefmt": LOGGING_DATETIME_FORMAT}
+            },
             "handlers": {
-                "console_handler": {"level": "DEBUG", "formatter": "lgbsttracker_formatter", "class": "logging.StreamHandler"},
+                "console_handler": {
+                    "level": "DEBUG",
+                    "formatter": "lgbsttracker_formatter",
+                    "class": "logging.StreamHandler",
+                },
                 "log_file_handler": {
                     "level": "DEBUG",
                     "formatter": "lgbsttracker_formatter",

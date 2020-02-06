@@ -1,18 +1,23 @@
-from abc import abstractmethod, ABCMeta
-import entrypoints
 import warnings
+from abc import ABCMeta, abstractmethod
 
-from lgbsttracker.exceptions import LgbsttrackerException
-from lgbsttracker.protos.common_pb2 import INVALID_PARAMETER_VALUE
+import entrypoints
+
+from lgbsttracker.errors import ErrorCodes
+from lgbsttracker.exceptions import GenericException
 from lgbsttracker.utils.uri import get_uri_scheme
 
 
-class UnsupporteRegistryStoreURIException(LgbsttrackerException):
+class UnsupporteRegistryStoreURIException(GenericException):
     """Exception thrown when building a registry store with an unsupported URI"""
 
     def __init__(self, unsupported_uri, supported_uri_schemes):
-        message = "Unsupported URI '{}' for registry store. Supported schemes are: {}".format(unsupported_uri, supported_uri_schemes)
-        super(UnsupporteRegistryStoreURIException, self).__init__(message, error_code=INVALID_PARAMETER_VALUE)
+        message = "Unsupported URI '{}' for registry store. Supported schemes are: {}".format(
+            unsupported_uri, supported_uri_schemes
+        )
+        super(UnsupporteRegistryStoreURIException, self).__init__(
+            message, error_code=ErrorCodes.INVALID_PARAMETER_VALUE
+        )
         self.supported_uri_schemes = supported_uri_schemes
 
 
@@ -44,10 +49,14 @@ class StoreRegistry:
     def register_entrypoints(self):
         """Register stores provided by other packages"""
         for entrypoint in entrypoints.get_group_all(self.group_name):
+            self.register(entrypoint.name, entrypoint.load())
             try:
                 self.register(entrypoint.name, entrypoint.load())
             except (AttributeError, ImportError) as exc:
-                warnings.warn('Failure attempting to register store for scheme "{}": {}'.format(entrypoint.name, str(exc)), stacklevel=2)
+                warnings.warn(
+                    'Failure attempting to register store for scheme "{}": {}'.format(entrypoint.name, str(exc)),
+                    stacklevel=2,
+                )
 
     def get_store_builder(self, uri):
         """Get a store from the registry based on the scheme of store_uri
@@ -56,13 +65,14 @@ class StoreRegistry:
                           URI is used to select which store implementation to instantiate
                           and is passed to the constructor of the implementation.
         :return: A function that returns an instance of
-                 ``lgbsttracker.store.{sensor}.AbstractStore`` that fulfills the store
+                 ``lgbsttracker.store.experiment.AbstractStore`` that fulfills the store
                   URI requirements.
         """
         scheme = get_uri_scheme(uri)
-
         try:
             store_builder = self._registry[scheme]
         except KeyError:
-            raise UnsupporteRegistryStoreURIException(unsupported_uri=uri, supported_uri_schemes=list(self._registry.keys()))
+            raise UnsupporteRegistryStoreURIException(
+                unsupported_uri=uri, supported_uri_schemes=list(self._registry.keys())
+            )
         return store_builder

@@ -1,0 +1,10 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Kill Terminal",
+            "type": "process",
+            "command": "{command:workbench.action.terminal.kill}",
+        }
+    ]
+}

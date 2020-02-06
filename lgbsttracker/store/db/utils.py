@@ -1,46 +1,58 @@
 import logging
-import sqlalchemy
-from contextlib import contextmanager
+import os
 
-from lgbsttracker.store.sensors.dbmodels.initial_models import Base as InitialBase
-from lgbsttracker.exceptions import LgbsttrackerException
-from lgbsttracker.protos.common_pb2 import INTERNAL_ERROR
+import sqlalchemy
+import sqlalchemy_utils
 
 _logger = logging.getLogger(__name__)
 
 
-def create_sqlalchemy_engine(db_uri):
+def _create_sqlalchemy_engine(db_uri):
     return sqlalchemy.create_engine(db_uri)
 
 
-def _get_managed_session_maker(SessionMaker):
+def _get_package_dir():
+    """Returns directory containing python package."""
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    return os.path.normpath(os.path.join(current_dir, os.pardir, os.pardir))
+
+
+def _get_alembic_config(db_url, alembic_dir=None):
     """
-    Creates a factory for producing exception-safe SQLAlchemy sessions that are made available
-    using a context manager. Any session produced by this factory is automatically committed
-    if no exceptions are encountered within its associated context. If an exception is
-    encountered, the session is rolled back. Finally, any session produced by this factory is
-    automatically closed when the session's associated context is exited.
+    Constructs an alembic Config object referencing the specified database and migration script
+    directory.
+
+    :param db_url Database URL, like sqlite:///<absolute-path-to-local-db-file>. See
+    https://docs.sqlalchemy.org/en/13/core/engines.html#database-urls for a full list of valid
+    database URLs.
+    :param alembic_dir Path to migration script directory. Uses canonical migration script
+    directory under mlflow/alembic if unspecified. TODO: remove this argument in MLflow 1.1, as
+    it's only used to run special migrations for pre-1.0 users to remove duplicate constraint
+    names.
     """
+    from alembic.config import Config
 
-    @contextmanager
-    def make_managed_session():
-        """Provide a transactional scope around a series of operations."""
-        session = SessionMaker()
-        try:
-            yield session
-            session.commit()
-        except LgbsttrackerException:
-            session.rollback()
-            raise
-        except Exception as e:
-            session.rollback()
-            raise LgbsttrackerException(message=e, error_code=INTERNAL_ERROR)
-        finally:
-            session.close()
-
-    return make_managed_session
+    final_alembic_dir = (
+        os.path.join(_get_package_dir(), "store", "db_migrations") if alembic_dir is None else alembic_dir
+    )
+    config = Config(os.path.join(final_alembic_dir, "alembic.ini"))
+    config.set_main_option("script_location", final_alembic_dir)
+    config.set_main_option("sqlalchemy.url", db_url)
+    return config
 
 
-def _initialize_tables(engine):
-    _logger.info("Creating initial database tables...")
-    InitialBase.metadata.create_all(engine)
+def upgrade_sql_db(url):
+    """
+    Upgrade Model DB and create DataBase if not exists
+
+    :param url Database URL
+    """
+    # alembic adds significant import time, so we import it lazily
+    from alembic import command
+
+    engine = _create_sqlalchemy_engine(url)
+    if not sqlalchemy_utils.database_exists(engine.url):
+        sqlalchemy_utils.create_database(engine.url)
+    _logger.info("Updating database tables at %s", url)
+    config = _get_alembic_config(url)
+    command.upgrade(config, "heads")

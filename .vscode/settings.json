@@ -1,5 +1,5 @@
 {
-    "python.pythonPath": "/usr/local/bin/python",
+    "python.pythonPath": "/workspaces/lgbsttracker/.venv/bin/python3",
     "python.linting.pylintEnabled": false,
     "python.linting.flake8Enabled": true,
     "python.linting.enabled": true,
@@ -13,7 +13,7 @@
     ],
     "python.testing.pytestEnabled": true,
     "python.testing.nosetestsEnabled": false,
-    "python.testing.unittestEnabled": false,
+    "python.testing.unittestEnabled": true,
     "python.formatting.provider": "black",
     "python.formatting.blackArgs": [
         "--line-length=150"
@@ -21,5 +21,8 @@
     "editor.formatOnSave": true,
     "remote.WSL.fileWatcher.polling": true,
     "workbench.editor.enablePreview": false,
-    "python.envFile": "${workspaceFolder}/.env"
+    "python.envFile": "${workspaceFolder}/.env",
+    "search.exclude": {
+        "**/.venv": true
+    }
 }

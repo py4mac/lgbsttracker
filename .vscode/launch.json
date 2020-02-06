@@ -5,20 +5,17 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "serve-api-storage-sensors",
+            "name": "process",
             "type": "python",
             "request": "launch",
-            "program": "${workspaceFolder}/lgbsttracker/cli.py",
+            "program": "${workspaceFolder}/examples/init_db.py",
             "console": "integratedTerminal",
             "env": {
                 "PYTHONPATH": "${workspaceFolder}",
-            },
-            "args": [
-                "serve-api-storage-sensors"
-            ]
+            }
         },
         {
-            "name": "serve-api-doc",
+            "name": "cli-db-upgrade-db",
             "type": "python",
             "request": "launch",
             "program": "${workspaceFolder}/lgbsttracker/cli.py",
@@ -27,8 +24,9 @@
                 "PYTHONPATH": "${workspaceFolder}",
             },
             "args": [
-                "serve-api-doc"
+                "db",
+                "upgrade-db"
             ]
-        }
+        },
     ]
 }

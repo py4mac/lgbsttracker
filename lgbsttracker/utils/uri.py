@@ -1,9 +1,9 @@
 from six.moves import urllib
 
-from lgbsttracker.utils.validation import _validate_db_type_string
-from lgbsttracker.exceptions import LgbsttrackerException
+from lgbsttracker.errors import ErrorCodes
+from lgbsttracker.exceptions import GenericException
 from lgbsttracker.store.db.db_types import DATABASE_ENGINES
-from lgbsttracker.protos.common_pb2 import INVALID_PARAMETER_VALUE
+from lgbsttracker.utils.validation import _validate_db_type_string
 
 _INVALID_DB_URI_MSG = "Please refer to format specifications."
 
@@ -22,7 +22,7 @@ def extract_db_type_from_uri(db_uri):
         db_type, _ = scheme.split("+")
     else:
         error_msg = "Invalid database URI: '%s'. %s" % (db_uri, _INVALID_DB_URI_MSG)
-        raise LgbsttrackerException(error_msg, INVALID_PARAMETER_VALUE)
+        raise GenericException(error_msg, ErrorCodes.INVALID_PARAMETER_VALUE)
 
     _validate_db_type_string(db_type)
 

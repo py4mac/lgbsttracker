@@ -17,7 +17,6 @@ jobs:
     - name: Build Mkdocs
       run: |
         python3 -m mkdocs build
-        cp CNAME ./site/CNAME
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v2
       env:

@@ -1,0 +1,123 @@
+[tool.poetry]
+name = "lgbsttracker"
+version = "0.0.1"
+description = "0.0.1"
+license = "MIT"
+authors = ["Py4mac <boisbu@gmail.com>"]
+readme = "README.md"
+homepage = "https://github.com/py4mac/lgbsttracker"
+repository = "https://github.com/py4mac/lgbsttracker"
+documentation ="http://lgbsttracker.py4mac.com"
+keywords = ["utilities", "utils"]
+classifiers = [
+    "Intended Audience :: Information Technology",
+    "Intended Audience :: System Administrators",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python",
+    "Topic :: Internet",
+    "Topic :: Software Development :: Libraries :: Application Frameworks",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Software Development",
+    "Typing :: Typed",
+    "Development Status :: 4 - Beta",
+    "Environment :: Web Environment",
+    "Framework :: AsyncIO",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Topic :: Internet :: WWW/HTTP :: HTTP Servers",
+    "Topic :: Internet :: WWW/HTTP",
+]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+
+psycopg2 = "*"
+sqlalchemy = "*"
+google-api = "*"
+google-api-core = "*"
+grpcio = "*"
+python-dateutil = "*"
+numpy = "*"
+confluent-kafka = "1.2.0"
+click = "*"
+aiohttp = "*"
+entrypoints = "*"
+querystring_parser = "*"
+grpcio-tools = "*"
+protoc_gen_swagger = "*"
+requests = "*"
+prometheus-client = "*"
+sqlalchemy-utils = "*"
+lock = "^2018.3.25"
+autoflake = "^1.3.1"
+pandas = "^0.25.3"
+alembic = "^1.3.3"
+pydantic = "^1.4"
+fastapi = "^0.48.0"
+asynctest = "^0.13.0"
+pytest-asyncio = "^0.10.0"
+pytest-aiohttp = "^0.3.0"
+
+[tool.poetry.dev-dependencies]
+requests = "*"  # TestClient
+
+# Testing
+pytest = "*"
+pytest-cov = "*"
+pytest-asyncio = "*"
+coverage = "*"
+coveralls = "*"
+codecov = "*"
+
+# Static
+isort = "*"
+autoflake = "*"
+black = { version = "*", allow-prereleases = true }
+flake8 = "*"
+mypy = "*"
+sqlalchemy-stubs = "*"
+
+# Documentation
+mkdocs = "*"
+mkdocs-material = "*"
+markdown-include = "*"
+pymdown-extensions = "*"
+fontawesome-markdown = "*"
+mock = "^3.0.5"
+
+[tool.black]
+line-length = 120
+target_version = ['py37']
+include = '\.pyi?$'
+exclude = '''
+(
+  /(
+    \.git
+    | \.mypy_cache
+    | \.pytest_cache
+    | htmlcov
+    | build
+  )/
+)
+'''
+
+[tool.isort]
+line_length = 120
+known_first_party = ["lgbsttracker", "tests"]
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+combine_as_imports = true
+
+[tool.poetry.scripts]
+lgbsttracker = 'lgbsttracker.cli:cli'
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"

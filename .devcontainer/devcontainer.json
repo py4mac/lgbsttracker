@@ -1,0 +1,19 @@
+{
+    "dockerFile": "Dockerfile.dev",
+    "postCreateCommand": "poetry config virtualenvs.in-project true && poetry config virtualenvs.path env/ && poetry install --no-root",
+    "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash",
+        "python.pythonPath": "/workspaces/lgbsttracker/.venv/bin/python3"
+    },
+    "runArgs": [
+        "--env-file",
+        ".devcontainer/devcontainer.env"
+    ],
+    "extensions": [
+        "ms-vcode.python",
+        "ms-python.python"
+    ],
+    "appPort": [
+        "8008:8008"
+    ]
+}

@@ -1,3 +1,3 @@
-from lgbsttracker.entities.light_sensor import LightSensor
+from lgbsttracker.entities.experiment import Experiment, ExperimentCreate
 
-__all__ = ["LightSensor"]
+__all__ = ["Experiment", "ExperimentCreate"]

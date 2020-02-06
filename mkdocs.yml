@@ -1,6 +1,6 @@
-site_name: LGBSTTracker
-site_description: LEGO® Boost Tracker
-site_url: http://py4mac.github.io/lbgsttracker/
+site_name: lgbsttracker
+site_description: lgbsttracker
+site_url: https://github.com/py4mac/lgbsttracker
 
 theme:
     name: 'material'
@@ -15,7 +15,7 @@ repo_url: https://github.com/py4mac/lgbsttracker
 edit_uri: ''
 
 nav:
-    - LGBSTTracker: 'index.md'
+    - Main: 'index.md'
 
 markdown_extensions:
   - markdown.extensions.codehilite:

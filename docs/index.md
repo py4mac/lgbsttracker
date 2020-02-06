@@ -1,4 +1,4 @@
-<H1>LEGO® Boost Tracker</H1>
+<H1>lgbsttracker</H1>
 <p align="center">
 <img src="https://img.shields.io/github/last-commit/py4mac/lgbsttracker.svg">
 <a href="https://github.com/py4mac/" target="_blank">
@@ -20,8 +20,6 @@
 
 ---
 
-LEGO® Boost Tracker helps to store all differents sensors collected for your favorite robot ;-)
-
 ## Requirements
 
 Python 3.6+
@@ -39,6 +37,23 @@ pip install lgbsttracker
 
 
 (Work in progress)
+
+## Environment variables
+
+| Variable Name |  Description | Default value |
+| --- | --- | --- |
+| EXPERIMENT_STORAGE_URI | DB Experiment Storage URI | Mandatory: to be set by the user before using library |
+| SQL_DB_THREAD_POOL_EXECUTOR_SIZE | Thread pool size | 100 |
+| MIN_CONNECTION_POOL_SIZE | Minimum pool size connection | 10 |
+| MAX_CONNECTION_POOL_SIZE | Maxiumum pool size connection | 20 |
+| CONNECTION_POOL_RECYCLE_TIME | Pool connection recycle time | 30 |
+
+## References
+
+* https://github.com/mlflow/mlflow/
+* https://github.com/undera/pylgbst
+* https://github.com/tiangolo/fastapi
+* https://github.com/aalhour/cookiecutter-aiohttp-sqlalchemy/
 
 ## License
 

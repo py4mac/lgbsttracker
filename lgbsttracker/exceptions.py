@@ -1,34 +1,7 @@
-import json
-
-from lgbsttracker.protos.common_pb2 import (
-    INTERNAL_ERROR,
-    TEMPORARILY_UNAVAILABLE,
-    ENDPOINT_NOT_FOUND,
-    PERMISSION_DENIED,
-    REQUEST_LIMIT_EXCEEDED,
-    BAD_REQUEST,
-    INVALID_PARAMETER_VALUE,
-    RESOURCE_DOES_NOT_EXIST,
-    INVALID_STATE,
-    RESOURCE_ALREADY_EXISTS,
-    ErrorCode,
-)
-
-ERROR_CODE_TO_HTTP_STATUS = {
-    ErrorCode.Name(INTERNAL_ERROR): 500,
-    ErrorCode.Name(INVALID_STATE): 500,
-    ErrorCode.Name(TEMPORARILY_UNAVAILABLE): 503,
-    ErrorCode.Name(REQUEST_LIMIT_EXCEEDED): 429,
-    ErrorCode.Name(ENDPOINT_NOT_FOUND): 404,
-    ErrorCode.Name(RESOURCE_DOES_NOT_EXIST): 404,
-    ErrorCode.Name(PERMISSION_DENIED): 403,
-    ErrorCode.Name(BAD_REQUEST): 400,
-    ErrorCode.Name(RESOURCE_ALREADY_EXISTS): 400,
-    ErrorCode.Name(INVALID_PARAMETER_VALUE): 400,
-}
+from lgbsttracker.errors import ErrorCodeNames, ErrorCodes
 
 
-class LgbsttrackerException(Exception):
+class GenericException(Exception):
     """
     Generic exception thrown to surface failure information about external-facing operations.
     The error message associated with this exception may be exposed to clients in HTTP responses
@@ -36,29 +9,25 @@ class LgbsttrackerException(Exception):
     instead.
     """
 
-    def __init__(self, message, error_code=INTERNAL_ERROR, **kwargs):
+    def __init__(self, message, error_code=ErrorCodes.INTERNAL_ERROR, **kwargs):
         """
         :param message: The message describing the error that occured. This will be included in the
                         exception's serialized JSON representation.
         :param error_code: An appropriate error code for the error that occured; it will be included
                            in the exception's serialized JSON representation. This should be one of
-                           the codes listed in the `lgbsttracker.protos.generic_pb2` proto.
+                           the codes listed in the `lgbsttracker.errors.ErrorCodes`.
         :param kwargs: Additional key-value pairs to include in the serialized JSON representation
-                       of the class LgbsttrackerException
-.
+                       of the GenericException.
         """
         try:
-            self.error_code = ErrorCode.Name(error_code)
+            self.error_code = ErrorCodeNames.get(error_code)
         except (ValueError, TypeError):
-            self.error_code = ErrorCode.Name(INTERNAL_ERROR)
+            self.error_code = ErrorCodeNames.get(ErrorCodes.INTERNAL_ERROR)
         self.message = message
         self.json_kwargs = kwargs
-        super(LgbsttrackerException, self).__init__(message)
+        super(GenericException, self).__init__(message)
 
-    def serialize_as_json(self):
-        exception_dict = {"error_code": self.error_code, "message": self.message}
-        exception_dict.update(self.json_kwargs)
-        return json.dumps(exception_dict)
 
-    def get_http_status_code(self):
-        return ERROR_CODE_TO_HTTP_STATUS.get(self.error_code, 500)
+class DatabaseNotInitialized(GenericException):
+    def __init__(self, message):
+        super(DatabaseNotInitialized, self).__init__(message, error_code=ErrorCodes.INTERNAL_ERROR)
