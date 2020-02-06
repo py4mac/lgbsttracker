@@ -21,7 +21,7 @@ jobs:
         python-version: '3.x'
     - name: install pgsql utilities
       run: |
-        apt-get install libpq-dev
+        sudo apt-get install libpq-dev
     - name: Install Python 3.x dependencies
       run: |
         python3 -m pip install --upgrade pip
