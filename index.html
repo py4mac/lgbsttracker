@@ -10,10 +10,10 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
-        <meta name="description" content="LEGO® Boost Tracker">
+        <meta name="description" content="lgbsttracker">
       
       
-        <link rel="canonical" href="http://py4mac.github.io/lbgsttracker/">
+        <link rel="canonical" href="https://github.com/py4mac/lgbsttracker/">
       
       
       
@@ -40,7 +40,7 @@
     
     
       
-        <title>LGBSTTracker</title>
+        <title>lgbsttracker</title>
       
     
     
@@ -98,7 +98,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="http://py4mac.github.io/lbgsttracker/" title="LGBSTTracker" class="md-header-nav__button md-logo">
+        <a href="https://github.com/py4mac/lgbsttracker" title="lgbsttracker" class="md-header-nav__button md-logo">
           
             <img src="img/icon-white.svg" width="24" height="24">
           
@@ -110,7 +110,14 @@
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           
-            LGBSTTracker
+            <span class="md-header-nav__topic">
+              lgbsttracker
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Main
+              
+            </span>
           
         </div>
       </div>
@@ -183,12 +190,12 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="http://py4mac.github.io/lbgsttracker/" title="LGBSTTracker" class="md-nav__button md-logo">
+    <a href="https://github.com/py4mac/lgbsttracker" title="lgbsttracker" class="md-nav__button md-logo">
       
         <img src="img/icon-white.svg" width="48" height="48">
       
     </a>
-    LGBSTTracker
+    lgbsttracker
   </label>
   
     <div class="md-nav__source">
@@ -226,11 +233,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        LGBSTTracker
+        Main
       </label>
     
-    <a href="." title="LGBSTTracker" class="md-nav__link md-nav__link--active">
-      LGBSTTracker
+    <a href="." title="Main" class="md-nav__link md-nav__link--active">
+      Main
     </a>
     
       
@@ -272,6 +279,20 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environment-variables" class="md-nav__link">
+    Environment variables
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References
+  </a>
   
 </li>
       
@@ -346,6 +367,20 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#environment-variables" class="md-nav__link">
+    Environment variables
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#license" class="md-nav__link">
     License
   </a>
@@ -369,9 +404,9 @@
               
                 
                 
-                  <h1>LGBSTTracker</h1>
+                  <h1>Main</h1>
                 
-                <H1>LEGO® Boost Tracker</H1>
+                <H1>lgbsttracker</H1>
 
 <p align="center">
 <img src="https://img.shields.io/github/last-commit/py4mac/lgbsttracker.svg">
@@ -390,7 +425,6 @@
 <p><strong>Documentation</strong>: <a href="https://py4mac.github.io/lgbsttracker" target="_blank">https://py4mac.github.io/lgbsttracker</a></p>
 <p><strong>Source Code</strong>: <a href="https://github.com/py4mac/lgbsttracker" target="_blank">https://github.com/py4mac/lgbsttracker</a></p>
 <hr />
-<p>LEGO® Boost Tracker helps to store all differents sensors collected for your favorite robot ;-)</p>
 <h2 id="requirements">Requirements</h2>
 <p>Python 3.6+</p>
 <h2 id="installation">Installation</h2>
@@ -401,6 +435,50 @@
 <h2 id="example">Example</h2>
 <h3 id="use-it">Use it</h3>
 <p>(Work in progress)</p>
+<h2 id="environment-variables">Environment variables</h2>
+<table>
+<thead>
+<tr>
+<th>Variable Name</th>
+<th>Description</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EXPERIMENT_STORAGE_URI</td>
+<td>DB Experiment Storage URI</td>
+<td>Mandatory: to be set by the user before using library</td>
+</tr>
+<tr>
+<td>SQL_DB_THREAD_POOL_EXECUTOR_SIZE</td>
+<td>Thread pool size</td>
+<td>100</td>
+</tr>
+<tr>
+<td>MIN_CONNECTION_POOL_SIZE</td>
+<td>Minimum pool size connection</td>
+<td>10</td>
+</tr>
+<tr>
+<td>MAX_CONNECTION_POOL_SIZE</td>
+<td>Maxiumum pool size connection</td>
+<td>20</td>
+</tr>
+<tr>
+<td>CONNECTION_POOL_RECYCLE_TIME</td>
+<td>Pool connection recycle time</td>
+<td>30</td>
+</tr>
+</tbody>
+</table>
+<h2 id="references">References</h2>
+<ul>
+<li>https://github.com/mlflow/mlflow/</li>
+<li>https://github.com/undera/pylgbst</li>
+<li>https://github.com/tiangolo/fastapi</li>
+<li>https://github.com/aalhour/cookiecutter-aiohttp-sqlalchemy/</li>
+</ul>
 <h2 id="license">License</h2>
 <p>This project is licensed under the terms of the MIT license.</p>
                 
