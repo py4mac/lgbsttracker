@@ -1,9 +1,17 @@
-from sqlalchemy import Column, Float, Integer, String, DateTime, PrimaryKeyConstraint, CheckConstraint, Index
 from datetime import datetime
-from lgbsttracker.store.db.sql_database import db
-from lgbsttracker.entities.experiment import ExperimentAction, ExperimentState
 
-ActionTypes = [ExperimentAction.NONE, ExperimentAction.FORWARD, ExperimentAction.BACKWARD, ExperimentAction.LEFT, ExperimentAction.RIGHT]
+from sqlalchemy import CheckConstraint, Column, DateTime, Float, Index, Integer, PrimaryKeyConstraint, String
+
+from lgbsttracker.entities.experiment import ExperimentAction, ExperimentState
+from lgbsttracker.store.db.sql_database import db
+
+ActionTypes = [
+    ExperimentAction.NONE,
+    ExperimentAction.FORWARD,
+    ExperimentAction.BACKWARD,
+    ExperimentAction.LEFT,
+    ExperimentAction.RIGHT,
+]
 
 StateTypes = [
     ExperimentState.STOPPED,
@@ -30,5 +38,6 @@ class Experiment(db.BaseModel):  # type: ignore
     )
 
     def __repr__(self):
-        return "<Experiment ({}, {},{}, {},{}, {})>".format(self.experiment_uuid, self.ts, self.action, self.vision_sensor, self.speed, self.state)
-
+        return "<Experiment ({}, {},{}, {},{}, {})>".format(
+            self.experiment_uuid, self.ts, self.action, self.vision_sensor, self.speed, self.state
+        )

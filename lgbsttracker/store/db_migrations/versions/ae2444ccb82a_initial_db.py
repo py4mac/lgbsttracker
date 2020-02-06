@@ -9,9 +9,9 @@ import datetime
 import logging
 
 from alembic import op
-from sqlalchemy import Column, Float, Integer, String, DateTime, orm, PrimaryKeyConstraint, CheckConstraint, Index
-from lgbsttracker.entities.experiment import ExperimentAction, ExperimentState
+from sqlalchemy import CheckConstraint, Column, DateTime, Float, Index, Integer, PrimaryKeyConstraint, String, orm
 
+from lgbsttracker.entities.experiment import ExperimentAction, ExperimentState
 
 _logger = logging.getLogger(__name__)
 _logger.setLevel(logging.INFO)

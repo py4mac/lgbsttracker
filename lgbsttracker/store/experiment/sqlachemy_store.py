@@ -19,7 +19,14 @@ class CRUDExperiment(CRUDBase[Experiment, ExperimentCreate, ExperimentUpdate]):
             ret = db_session.query(Experiment).filter(Experiment.experiment_uuid == uuid).all()
             # Hard trick here as the session could expire here.
             db_obj = [
-                Experiment(experiment_uuid=e.experiment_uuid, ts=e.ts, action=e.action, vision_sensor=e.vision_sensor, speed=e.speed, state=e.state)
+                Experiment(
+                    experiment_uuid=e.experiment_uuid,
+                    ts=e.ts,
+                    action=e.action,
+                    vision_sensor=e.vision_sensor,
+                    speed=e.speed,
+                    state=e.state,
+                )
                 for e in ret
             ]
             return db_obj

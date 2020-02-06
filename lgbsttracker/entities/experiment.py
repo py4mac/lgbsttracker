@@ -1,5 +1,7 @@
-from pydantic import BaseModel
 from datetime import datetime
+
+from pydantic import BaseModel
+
 
 class ExperimentAction:
     NONE = "none"
@@ -8,11 +10,13 @@ class ExperimentAction:
     LEFT = "left"
     RIGHT = "right"
 
+
 class ExperimentState:
     STOPPED = "stopped"
     FAILED = "failed"
     RUNNING = "running"
     FINISHED = "finished"
+
 
 # Shared properties
 class ExperimentBase(BaseModel):
@@ -22,6 +26,7 @@ class ExperimentBase(BaseModel):
     vision_sensor: float = None  # type: ignore
     speed: float = None  # type: ignore
     state: str = None  # type: ignore
+
 
 # Properties to receive on experiment creation
 class ExperimentCreate(ExperimentBase):
