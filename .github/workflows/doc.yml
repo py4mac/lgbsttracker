@@ -16,7 +16,7 @@ jobs:
     - name: Install Python 3.x dependencies
       run: |
         python3 -m pip install --upgrade pip
-        python3 -m pip install mkdocs mkdocs-material markdown-include
+        python3 -m pip install -r requirements.txt
     - name: Build Mkdocs
       run: |
         python3 -m mkdocs build
