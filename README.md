@@ -14,6 +14,8 @@
 
 ---
 
+**Trello Plan**: <a href="https://trello.com/b/lGICXLqL/lgbsttracker" target="_blank">https://trello.com/b/lGICXLqL/lgbsttracker</a>
+
 **Documentation**: <a href="https://py4mac.github.io/lgbsttracker" target="_blank">https://py4mac.github.io/lgbsttracker</a>
 
 **Source Code**: <a href="https://github.com/py4mac/lgbsttracker" target="_blank">https://github.com/py4mac/lgbsttracker</a>
