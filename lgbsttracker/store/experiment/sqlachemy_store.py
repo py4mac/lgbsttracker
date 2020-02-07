@@ -20,12 +20,7 @@ class CRUDExperiment(CRUDBase[Experiment, ExperimentCreate, ExperimentUpdate]):
             # Hard trick here as the session could expire here.
             db_obj = [
                 Experiment(
-                    experiment_uuid=e.experiment_uuid,
-                    ts=e.ts,
-                    action=e.action,
-                    vision_sensor=e.vision_sensor,
-                    speed=e.speed,
-                    state=e.state,
+                    id=e.id, experiment_uuid=e.experiment_uuid, ts=e.ts, action=e.action, vision_sensor=e.vision_sensor, speed=e.speed, state=e.state,
                 )
                 for e in ret
             ]

@@ -38,6 +38,6 @@ class Experiment(db.BaseModel):  # type: ignore
     )
 
     def __repr__(self):
-        return "<Experiment ({}, {},{}, {},{}, {})>".format(
-            self.experiment_uuid, self.ts, self.action, self.vision_sensor, self.speed, self.state
+        return "<Experiment ({}, {}, {},{}, {},{}, {})>".format(
+            self.id, self.experiment_uuid, self.ts, self.action, self.vision_sensor, self.speed, self.state
         )
