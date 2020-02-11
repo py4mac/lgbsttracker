@@ -30,15 +30,21 @@ Python 3.6+
 ## Installation
 
 ```bash
-pip install lgbsttracker
+pip install lgbsttracker==0.0.2
 ```
 
 ## Example
 
-### Use it
+### Use it with async def
 
-
-(Work in progress)
+```Python
+from lbgsttracker import create_experiment
+from lbgsttracker.entities import ExperimentCreate
+...
+await create_experiment(ExperimentCreate(experiment_uuid="experiment1"))
+experiment = await get_experiment_by_uuid("experiment1")
+_logger.info(f"Freshly created experiment: {experiment}")
+```
 
 ## Environment variables
 
