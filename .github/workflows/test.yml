@@ -7,7 +7,7 @@ on:
     branches:
     - master
 jobs:
-  test:
+  test-and-coverage:
     name: Test on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     strategy:

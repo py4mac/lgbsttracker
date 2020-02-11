@@ -5,7 +5,7 @@ on:
       - v*
 
 jobs:
-  test:
+  publish-on-pypi:
     name: Test on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     strategy:
