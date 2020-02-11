@@ -50,7 +50,7 @@ pip install lgbsttracker
 | MAX_CONNECTION_POOL_SIZE | Maxiumum pool size connection | 20 |
 | CONNECTION_POOL_RECYCLE_TIME | Pool connection recycle time | 30 |
 
-## References
+## Credits
 
 * https://github.com/mlflow/mlflow/
 * https://github.com/undera/pylgbst
