@@ -26,11 +26,10 @@
 
 Python 3.6+
 
-
 ## Installation
 
 ```bash
-pip install lgbsttracker==0.0.2
+pip install lgbsttracker==0.0.3
 ```
 
 ## Example
@@ -48,20 +47,20 @@ _logger.info(f"Freshly created experiment: {experiment}")
 
 ## Environment variables
 
-| Variable Name |  Description | Default value |
-| --- | --- | --- |
-| EXPERIMENT_STORAGE_URI | DB Experiment Storage URI | Mandatory: to be set by the user before using library |
-| SQL_DB_THREAD_POOL_EXECUTOR_SIZE | Thread pool size | 100 |
-| MIN_CONNECTION_POOL_SIZE | Minimum pool size connection | 10 |
-| MAX_CONNECTION_POOL_SIZE | Maxiumum pool size connection | 20 |
-| CONNECTION_POOL_RECYCLE_TIME | Pool connection recycle time | 30 |
+| Variable Name                    | Description                   | Default value                                         |
+| -------------------------------- | ----------------------------- | ----------------------------------------------------- |
+| EXPERIMENT_STORAGE_URI           | DB Experiment Storage URI     | Mandatory: to be set by the user before using library |
+| SQL_DB_THREAD_POOL_EXECUTOR_SIZE | Thread pool size              | 100                                                   |
+| MIN_CONNECTION_POOL_SIZE         | Minimum pool size connection  | 10                                                    |
+| MAX_CONNECTION_POOL_SIZE         | Maxiumum pool size connection | 20                                                    |
+| CONNECTION_POOL_RECYCLE_TIME     | Pool connection recycle time  | 30                                                    |
 
 ## Credits
 
-* https://github.com/mlflow/mlflow/
-* https://github.com/undera/pylgbst
-* https://github.com/tiangolo/fastapi
-* https://github.com/aalhour/cookiecutter-aiohttp-sqlalchemy/
+- https://github.com/mlflow/mlflow/
+- https://github.com/undera/pylgbst
+- https://github.com/tiangolo/fastapi
+- https://github.com/aalhour/cookiecutter-aiohttp-sqlalchemy/
 
 ## License
 

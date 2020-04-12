@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "lgbsttracker"
-version = "0.0.2"
-description = "0.0.2"
+version = "0.0.3"
+description = "0.0.3"
 license = "MIT"
 authors = ["Py4mac <boisbu@gmail.com>"]
 readme = "README.md"

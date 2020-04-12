@@ -34,7 +34,15 @@ class CRUDExperiment(CRUDBase[Experiment, ExperimentCreate, ExperimentUpdate]):
             db_session.add(db_obj)
             db_session.commit()
             db_session.refresh(db_obj)
-            return db_obj
+            return Experiment(
+                id=db_obj.id,
+                experiment_uuid=db_obj.experiment_uuid,
+                ts=db_obj.ts,
+                action=db_obj.action,
+                vision_sensor=db_obj.vision_sensor,
+                speed=db_obj.speed,
+                state=db_obj.state,
+            )
 
         return await run_async(_create, db_session, obj_in)
 
